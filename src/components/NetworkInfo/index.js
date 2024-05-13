@@ -21,7 +21,6 @@ const NetworkInfo = () => {
 
   const handleConnectivityChange = state => {
     setIsConnected(state.isConnected);
-    console.log('handleConnectivityChange', state);
   };
 
   console.log('isConnected', isConnected);

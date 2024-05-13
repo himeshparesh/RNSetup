@@ -1,6 +1,4 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import {A} from '@root/apiManager';
-import {R} from '@root/res';
 import {U} from '@root/utility';
 import axios from 'axios';
 import {storeToken} from './reducers/Login/LoginSlice';

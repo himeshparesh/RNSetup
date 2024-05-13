@@ -10,6 +10,7 @@ import i18next from 'i18next';
 import {store} from './store/configureStore';
 import {Constants} from './utility/Constants';
 import NetworkInfo from './components/NetworkInfo';
+import { ENV, ENV_BASE_URL } from '../env';
 
 LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
 LogBox.ignoreAllLogs(); //Ignore all log notifications
@@ -30,6 +31,8 @@ const App = () => {
       i18next.changeLanguage(Constants.englishLanguage);
     }
   };
+
+  console.log("ENVIRONMENT : ", ENV ,  " ENV_BASE_URL : ", ENV_BASE_URL)
 
   return (
     <Provider store={store}>

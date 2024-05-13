@@ -17,7 +17,18 @@
     "refresh-fonts": "npm run fonts && npm run unlink-android && npm run unlink-ios && npm run link",
     "clear-cache": "watchman watch-del-all && rm -rf $TMPDIR/react-native-packager-cache-* && rm -rf $TMPDIR/metro-bundler-cache-* && rm -rf node_modules/ && npm cache clean --force && npm install && npm start -- --reset-cache",
     "postinstall": "npx patch-package",
-    "clean-gradle": "cd android &&./gradlew clean"
+    "clean-gradle": "cd android &&./gradlew clean",
+
+    "android:dev": "ENVFILE=.env.development react-native run-android",
+    "android:staging": "ENVFILE=.env.staging react-native run-android",
+    "android:prod": "ENVFILE=.env.production react-native run-android",
+
+    "ios:dev": "ENVFILE=.env.development react-native run-ios",
+    "ios:staging": "ENVFILE=.env.staging react-native run-ios",
+    "ios:prod": "ENVFILE=.env.production react-native run-ios",
+    "setDevelopment": "ENVFILE=.env.development",
+    "setStaging": "ENVFILE=.env.staging",
+    "setProduction": "ENVFILE=.env.production"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.23.1",
@@ -33,6 +44,7 @@
     "react": "18.2.0",
     "react-i18next": "^14.1.1",
     "react-native": "0.74.1",
+    "react-native-config": "^1.5.1",
     "react-native-fast-image": "^8.6.3",
     "react-native-gesture-handler": "^2.16.2",
     "react-native-image-viewing": "^0.2.2",
