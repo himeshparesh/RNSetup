@@ -1,9 +1,6 @@
-import {useNavigation} from '@react-navigation/native';
-import C from '@root/components';
 import {U} from '@root/utility';
 import {default as React, useState} from 'react';
-import {Keyboard, Text, TouchableOpacity, View} from 'react-native';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import {TouchableOpacity, View, useColorScheme} from 'react-native';
 import {useDispatch} from 'react-redux';
 import styles from './styles';
 import {NativeStackNavigationHelpers} from '@react-navigation/native-stack/lib/typescript/src/types';
@@ -13,6 +10,7 @@ import {R} from '@root/res';
 import {loginThunk} from '@root/store/ThunkActions';
 import CustomText from '@root/components/TextButton';
 import { AleartDialog } from '@root/components/AleartDialog';
+import { storeToken } from '@root/store/reducers/Login/LoginSlice';
 
 type Params = {
   params: {
@@ -25,10 +23,12 @@ type Props = {
 };
 
 const Login = (props: Props) => {
+  const colorScheme = useColorScheme();
   const {t} = useTranslation();
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+console.log("colorScheme",colorScheme);
 
   const validate = () => {
     if (email == '') {
@@ -46,9 +46,9 @@ const Login = (props: Props) => {
   };
 
   const handleLogin = () => {
-    throw new Error('hello');
+    // throw new Error('hello');
 
-    // dispatch(storeToken("12345"))
+    dispatch(storeToken("12345"))
     let url = A.api.login();
 
     let body = {

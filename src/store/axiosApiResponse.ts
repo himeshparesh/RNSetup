@@ -1,7 +1,7 @@
 import {A} from '@root/apiManager';
 import {U} from '@root/utility';
 import axios from 'axios';
-import {storeToken} from './reducers/Login/LoginSlice';
+import { storeToken } from './reducers/Login/LoginSlice';
 
 const defaultHeader = {'Content-Type': 'application/json'};
 
