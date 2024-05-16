@@ -1,9 +1,7 @@
-import {api, errors, BASE_URL, getBaseURL, Links} from './apiConsts';
+import {api, errors, Links} from './apiConsts';
 const A = {
   api,
   errors,
-  getBaseURL,
-  BASE_URL,
   Links,
 };
 export {A};

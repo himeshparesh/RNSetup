@@ -51,7 +51,7 @@ const Login = (props: Props) => {
     // throw new Error('hello');
 
     dispatch(storeToken('12345'));
-    let url = A.api.login();
+    let url = A.api.login;
 
     let body = {
       username: 'kminchelle',
@@ -71,11 +71,11 @@ const Login = (props: Props) => {
       <TouchableOpacity onPress={handleLogin}>
         <CustomText text="Login few few" />
       </TouchableOpacity>
-      <CustomButton 
-        title={"toggle"}
+      <CustomButton
+        title={'toggle'}
         labelStyle={{color: theme.color}}
         onPress={() => {
-          toggleTheme(theme.name == 'dark' ? false : true)
+          toggleTheme(theme.name == 'dark' ? false : true);
         }}
       />
       <AleartDialog

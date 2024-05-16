@@ -1,3 +1,4 @@
+import {moderateScale, moderateVerticalScale} from 'react-native-size-matters';
 import colors from './colors';
 import {
   ImageStyle,
@@ -25,6 +26,18 @@ export enum ButtonSizes {
   normal = 44,
   large = 60,
 }
+
+export enum Spacing {
+  HR10 = moderateScale(10),
+  HR12 = moderateScale(12),
+  HR14 = moderateScale(14),
+  HR16 = moderateScale(16),
+  VR10 = moderateVerticalScale(10),
+  VR12 = moderateVerticalScale(12),
+  VR14 = moderateVerticalScale(14),
+  VR16 = moderateVerticalScale(16),
+}
+
 export type StyleType = ViewStyle | TextStyle | ImageStyle | FlexStyle | any;
 
 export type FontWeight =
@@ -45,8 +58,8 @@ export const centerVertical = {justifyContent: 'center'};
 export const fillParent = {flex: 1};
 export const flexRowSpaceBetween = {
   flexDirection: 'row',
-  justifyContent: 'space-around'
-}
+  justifyContent: 'space-around',
+};
 export const flexHorizontal = {
   flexDirection: 'row',
   justifyContent: 'space-around',

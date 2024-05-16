@@ -1,13 +1,15 @@
-export const BASE_URL = `https://dummyjson.com/auth`;
-
-const getBaseURL = () => {
-  return BASE_URL;
+const env_DEV = {
+  BASE_URL: 'https://dummyjson.com/auth',
 };
 
+const env_PROD = {
+  BASE_URL: 'https://prod.com/auth',
+};
+
+const EnvData = env_DEV;
+
 const api = {
-  login: () => {
-    return getBaseURL() + '/login';
-  },
+  login: `${EnvData.BASE_URL}/login`,
 };
 
 const statusCode = {
@@ -56,11 +58,4 @@ const errors = statusCode => {
   }
 };
 
-
-export {
-  errors,
-  getBaseURL,
-  Links,
-  statusCode,
-  api
-};
+export {Links, api, errors, statusCode, EnvData};

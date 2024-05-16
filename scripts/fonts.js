@@ -3,19 +3,12 @@ const generate = () => {
   var properties = [];
   var initialPath = 'src/res/fonts';
   var replacePath = initialPath.replace(
-    '/' +
-      initialPath
-        .split('/')
-        .slice(-1)
-        .pop(),
+    '/' + initialPath.split('/').slice(-1).pop(),
     '',
   );
 
   function readRecursive(dirPath) {
-    var key = dirPath
-      .split('/')
-      .slice(-1)
-      .pop();
+    var key = dirPath.split('/').slice(-1).pop();
     var val = [];
     fs.readdirSync(dirPath, {withFileTypes: true}).forEach(item => {
       if (item.isDirectory()) {
@@ -51,7 +44,7 @@ const generate = () => {
 
 export default fonts;
 `;
-  fs.writeFileSync(replacePath + '/fonts.js', string, 'utf8');
+  fs.writeFileSync(replacePath + '/fonts.ts', string, 'utf8');
 };
 
 generate();
