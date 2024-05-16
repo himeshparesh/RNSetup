@@ -1,10 +1,8 @@
 import NetInfo from '@react-native-community/netinfo';
-import {R} from '@root/res';
 import {NoInternet} from '@root/res/svgImages';
-import {U} from '@root/utility';
 import React, {useEffect, useState} from 'react';
-import {Modal, StyleSheet, Text, View} from 'react-native';
-import {moderateScale} from 'react-native-size-matters';
+import {Modal, Text, View} from 'react-native';
+import styles from './styles';
 
 const NetworkInfo = () => {
   const [isConnected, setIsConnected] = useState(false);
@@ -36,7 +34,5 @@ const NetworkInfo = () => {
     </Modal>
   );
 };
-
-
 
 export default NetworkInfo;
