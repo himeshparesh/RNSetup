@@ -27,6 +27,7 @@ export const ThemeProvider = ({
 }: ThemeProviderInterface): JSX.Element => {
   const currentTheme = useColorScheme();
 
+  
   const [theme, setTheme] = React.useState(
     currentTheme == 'dark' ? themes.dark : themes.light,
   );
