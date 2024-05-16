@@ -1,0 +1,21 @@
+{
+  "translation": {
+    "appName": "Demo",
+    "testing": "Bonjour, ceci teste le texte dans la section Texte.",
+    "text": {
+      "testing": "Bonjour, ceci teste le texte dans la section Texte."
+    },
+    "header": {},
+    "common": {
+      "testing": "Bonjour, Ceci teste le texte dans la section commune."
+    },
+    "label": {},
+    "buttonTitle": {
+      "changeLanguage": "Changer de langue"
+    },
+    "alerts": {},
+    "placeholder": {},
+    "validationErrors": {},
+    "successMessage": {}
+  }
+}

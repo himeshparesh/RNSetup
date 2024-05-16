@@ -1,6 +1,21 @@
 {
   "translation": {
-    "appName": "Baggle"
-
+    "appName": "Demo",
+    "testing": "Hi, This is testing text under the Text Section.",
+    "text": {
+      "testing": "Hi, This is testing text under the Text Section."
+    },
+    "header": {},
+    "common": {
+      "testing": "Hi, This is testing text under the Common Section."
+    },
+    "label": {},
+    "buttonTitle": {
+      "changeLanguage": "Change Lanugage"
+    },
+    "alerts": {},
+    "placeholder": {},
+    "validationErrors": {},
+    "successMessage": {}
   }
 }

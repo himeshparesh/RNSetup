@@ -1,17 +1,17 @@
-import React, {useEffect} from 'react';
-import {RootNavigator} from './navigators';
-import {Provider} from 'react-redux';
-import SplashScreen from 'react-native-splash-screen';
-import {LogBox, Text, View, useColorScheme} from 'react-native';
-import {WRootToastApp} from 'react-native-smart-tip';
-import {keys} from './res/global';
-import {getLocalDataByKey} from './utility/utility';
 import i18next from 'i18next';
-import {store} from './store/configureStore';
-import {Constants} from './utility/Constants';
-import NetworkInfo from './components/NetworkInfo';
+import React, {useEffect} from 'react';
+import {LogBox, useColorScheme} from 'react-native';
+import {WRootToastApp} from 'react-native-smart-tip';
+import SplashScreen from 'react-native-splash-screen';
+import {Provider} from 'react-redux';
 import {ENV, ENV_BASE_URL} from '../env';
-import { ThemeProvider, useTheme } from './theme/useTheme';
+import NetworkInfo from './components/NetworkInfo';
+import {RootNavigator} from './navigators';
+import {keys} from './res/global';
+import {store} from './store/configureStore';
+import {ThemeProvider, useTheme} from './theme/useTheme';
+import {Languages} from './utility/Constants';
+import {getLocalDataByKey} from './utility/utility';
 
 LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
 LogBox.ignoreAllLogs(); //Ignore all log notifications
@@ -20,22 +20,11 @@ const App = () => {
   const currentTheme = useColorScheme();
   const {toggleTheme} = useTheme();
   useEffect(() => {
-
     // toggleTheme(currentTheme == 'dark')
-    // checkAndChangeLanguage();
     setTimeout(() => {
       SplashScreen.hide();
     }, 2000);
   }, []);
-
-  const checkAndChangeLanguage = async () => {
-    const currLanguage = await getLocalDataByKey(keys.KEY_CURRENT_LANGUAGE);
-    if (currLanguage) {
-      i18next.changeLanguage(currLanguage);
-    } else {
-      i18next.changeLanguage(Constants.englishLanguage);
-    }
-  };
 
   console.log('ENVIRONMENT : ', ENV, ' ENV_BASE_URL : ', ENV_BASE_URL);
 

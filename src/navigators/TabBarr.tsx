@@ -1,13 +1,10 @@
 import React from 'react';
 
 import {R} from '@root/res';
-import {
-  Dashboard,
-  DashboardFilled,
-} from '@root/res/svgImages';
+import {Dashboard, DashboardFilled} from '@root/res/svgImages';
 import {U} from '@root/utility';
 import {useTranslation} from 'react-i18next';
-import { Pressable, StyleSheet, Text, View} from 'react-native';
+import {Pressable, StyleSheet, Text, View} from 'react-native';
 import {moderateScale} from 'react-native-size-matters';
 
 const TabBar = ({state, descriptors, navigation}: any) => {
@@ -21,14 +18,12 @@ const TabBar = ({state, descriptors, navigation}: any) => {
         let screenLabel;
         let labelColor;
         const getSVGIcons = () => {
-          console.log("route.name",route.name);
-          
           switch (route.name) {
             case R.globals.navigationRouteNames.dashboard:
               screenLabel = 'Dashboard';
               labelColor = isFocused ? R.colors.primaryGreen : R.colors.gray;
               return isFocused ? <DashboardFilled /> : <Dashboard />;
-          
+
             default:
               break;
           }

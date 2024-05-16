@@ -1,3 +1,5 @@
+import {Platform} from 'react-native';
+
 export const Constants = {
   whatapp: 'whatapp',
   email: 'email',
@@ -10,9 +12,12 @@ export const Constants = {
   englishLanguage: 'en',
 };
 
+export const Languages = {
+  english: 'en',
+  french: 'fr',
+};
+
 export const isAndroid = Platform.OS === 'android';
-
-
 
 export const PhoneType = [
   {name: 'Home'},

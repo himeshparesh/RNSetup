@@ -35,7 +35,7 @@ function AppNavigator() {
   };
 
   const showPermissionDialoge = () => {
-    Helper.checkReadWritePermission();
+    // Helper.checkReadWritePermission();
   };
 
   useEffect(() => {
@@ -66,8 +66,7 @@ function AppNavigator() {
           component={item.component}
         />
       ))} */}
-      
-      </Stack.Navigator>
+    </Stack.Navigator>
   );
 }
 

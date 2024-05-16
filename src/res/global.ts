@@ -4,6 +4,7 @@ export const keys = {
   KEY_USER_DATA: 'user_data',
   KEY_DEVICE_TOKEN: 'deviceToken',
   KEY_STORE: 'store',
+  KEY_CURRENT_LANGUAGE: 'currentLanguage',
 };
 
 export const APITypes = {
@@ -12,22 +13,6 @@ export const APITypes = {
   put: 'put',
   get: 'get',
   delete: 'delete',
-};
-
-export const SocialLinkTypes = {
-  website: 'Website',
-  facebook: 'Facebook',
-  instagram: 'Instagram',
-  linkedIn: 'Linkedin',
-  meet: 'GoogleMeet',
-  zoom: 'Zoom',
-  skype: 'Skype',
-};
-
-export const MeetingLinkTypes = {
-  zoom: 'Zoom',
-  meet: 'Meet',
-  skype: 'Skype',
 };
 
 export const navigationRouteNames = {

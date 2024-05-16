@@ -18,11 +18,9 @@
     "clear-cache": "watchman watch-del-all && rm -rf $TMPDIR/react-native-packager-cache-* && rm -rf $TMPDIR/metro-bundler-cache-* && rm -rf node_modules/ && npm cache clean --force && npm install && npm start -- --reset-cache",
     "postinstall": "npx patch-package",
     "clean-gradle": "cd android &&./gradlew clean",
-
     "android:dev": "ENVFILE=.env.development react-native run-android",
     "android:staging": "ENVFILE=.env.staging react-native run-android",
     "android:prod": "ENVFILE=.env.production react-native run-android",
-
     "ios:dev": "ENVFILE=.env.development react-native run-ios",
     "ios:staging": "ENVFILE=.env.staging react-native run-ios",
     "ios:prod": "ENVFILE=.env.production react-native run-ios",

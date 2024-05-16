@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
-import {View, Text, Dimensions, StyleSheet, Modal, Alert} from 'react-native';
 import NetInfo from '@react-native-community/netinfo';
 import {R} from '@root/res';
+import {NoInternet} from '@root/res/svgImages';
 import {U} from '@root/utility';
-import {Dashboard, DashboardFilled, NoInternet} from '@root/res/svgImages';
+import React, {useEffect, useState} from 'react';
+import {Modal, StyleSheet, Text, View} from 'react-native';
 import {moderateScale} from 'react-native-size-matters';
 
 const NetworkInfo = () => {
@@ -22,8 +22,6 @@ const NetworkInfo = () => {
   const handleConnectivityChange = state => {
     setIsConnected(state.isConnected);
   };
-
-  console.log('isConnected', isConnected);
 
   return (
     <Modal visible={!isConnected} transparent={true} animationType={'fade'}>
@@ -49,7 +47,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   offlineText: {color: '#fff', textAlign: 'center', paddingHorizontal: 40},
-  centerContent: {flex: 1, alignItems: 'center', justifyContent: 'center'}
+  centerContent: {flex: 1, alignItems: 'center', justifyContent: 'center'},
 });
 
 export default NetworkInfo;
