@@ -1,8 +1,12 @@
 import React from 'react';
 import {View, Modal, ActivityIndicator, StyleSheet} from 'react-native';
 import {R} from '@root/res';
+import {useTheme} from '@root/theme/useTheme';
 
-function Loader({loading, color = R.colors.primaryGreen}) {
+type props = {loading: boolean; color: string};
+
+const Loader = ({loading, color = R.colors.primaryGreen}: props) => {
+  const {theme} = useTheme();
   return (
     <Modal
       supportedOrientations={[
@@ -16,14 +20,16 @@ function Loader({loading, color = R.colors.primaryGreen}) {
       animationType={'none'}
       visible={loading}
       onRequestClose={() => {}}>
-      <View style={styles.modalBackground} visible={loading}>
+      <View
+        style={[styles.modalBackground, {backgroundColor: theme.containerGray}]}
+        visible={loading}>
         <View style={styles.activityIndicatorWrapper}>
           <ActivityIndicator animating={loading} size="large" color={color} />
         </View>
       </View>
     </Modal>
   );
-}
+};
 
 const styles = StyleSheet.create({
   modalBackground: {
@@ -31,7 +37,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'column',
     justifyContent: 'space-around',
-    backgroundColor: R.colors.black40,
   },
   activityIndicatorWrapper: {
     height: 100,

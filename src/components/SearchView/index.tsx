@@ -16,7 +16,7 @@ export default function searchView({
 
   const styles = StyleSheet.create({
     searchView: {
-      backgroundColor: R.colors.lightGray,
+      backgroundColor: R.colors.greenLight,
       height: 75,
       width: '90%',
       flexDirection: 'row',
@@ -30,7 +30,7 @@ export default function searchView({
       paddingHorizontal: 45,
       borderRadius: 10,
       color: R.colors.black,
-      borderColor: R.colors.lightGray20,
+      borderColor: R.colors.black,
     },
   });
 
@@ -41,7 +41,7 @@ export default function searchView({
       <View style={styles.subContainer}>
         <TextInput
           placeholder={placeHolder}
-          placeholderTextColor={R.colors.lightGray40}
+          placeholderTextColor={R.colors.black}
           style={styles.inputStyle}
           multiline={false}
           numberOfLines={1}
@@ -56,7 +56,7 @@ export default function searchView({
         />
         <CustomButton
           isIconButton={true}
-          icon={R.images.icons.search}
+          icon={R.images.icons.defaultImg}
           // tintColor={R.colors.white80}
           height={22}
           resizeMode={'contain'}
@@ -66,7 +66,7 @@ export default function searchView({
         {(value ?? '').length > 0 && (
           <CustomButton
             isIconButton={true}
-            icon={R.images.icons.delete}
+            icon={R.images.icons.defaultImg}
             tintColor={R.colors.black}
             height={28}
             resizeMode={'contain'}

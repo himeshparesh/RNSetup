@@ -11,6 +11,7 @@ import StoreItem from './StoreItem';
 import ComingSoonComp from './ComingSoonComp';
 import SortingModal from './SortingModal';
 import ImageZoomModal from './ImageZoomModal';
+import ImageZoomModal from './Layout';
 
 export default {
   Layout,
@@ -25,5 +26,5 @@ export default {
   StoreItem,
   ComingSoonComp,
   SortingModal,
-  ImageZoomModal,
+  ImageZoomModal
 };

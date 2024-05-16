@@ -15,7 +15,6 @@ function SafeArea({
     },
     bottomSafeArea: {
       flex: 1,
-      // backgroundColor: bottomColor,
     },
   });
 
