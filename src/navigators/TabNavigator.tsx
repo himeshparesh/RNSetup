@@ -1,7 +1,7 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NativeStackNavigationHelpers } from '@react-navigation/native-stack/lib/typescript/src/types';
-import { R } from '@root/res';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {NativeStackNavigationHelpers} from '@react-navigation/native-stack/lib/typescript/src/types';
+import {R} from '@root/res';
 import S from '@root/screens';
 import React from 'react';
 import TabBar from './TabBarr';
@@ -35,8 +35,6 @@ function DashboardStackNav() {
   );
 }
 
-
-
 type Props = {
   navigation: NativeStackNavigationHelpers;
 };
@@ -54,11 +52,7 @@ const TabNavigator = (props: Props) => {
         tabBarHideOnKeyboard: false,
         tabBarShowLabel: false,
       })}>
-      <Tab.Screen
-        name={'Dashboard'}
-        component={DashboardStackNav}
-      />
-     
+      <Tab.Screen name={'DashboardTab'} component={DashboardStackNav} />
     </Tab.Navigator>
   );
 };

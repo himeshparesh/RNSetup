@@ -1,9 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import NetInfo from '@react-native-community/netinfo';
-import {SERVER_URL} from '@root/apiManager/apiConsts';
-import i18n from '@root/i18n/i18n';
 import {R} from '@root/res';
-import {keys} from '@root/res/global';
 import {
   Alert,
   Dimensions,
@@ -11,8 +8,8 @@ import {
   NativeScrollEvent,
   Platform,
 } from 'react-native';
-import {WToast} from 'react-native-smart-tip';
 import {Constants} from './Constants';
+import i18n from '@root/language/i18n';
 
 export const getDeviceWidth = () => {
   return Math.round(Dimensions.get('window').width);

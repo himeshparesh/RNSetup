@@ -1,7 +1,7 @@
+import i18n from '@root/language/i18n';
 import {Platform} from 'react-native';
 import Permissions from 'react-native-permissions';
 import {showMessage} from './utility';
-import i18n from '@root/i18n/i18n';
 
 export const Helper = {
   checkReadWritePermission: () => {
