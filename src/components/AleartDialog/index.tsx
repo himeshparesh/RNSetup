@@ -62,34 +62,34 @@ export const AleartDialog: React.FC<CustomAlertDialogue> = props => {
           {props?.showBothBtn ? (
             <CustomButton
               title={props?.secondaryBtnText}
-              bgColor={colors.white}
+              bgColor={colors.primaryGreen}
               height={50}
               width="70%"
               labelStyle={{
                 ...Resource.palette.StyleText(
-                  Resource.palette.FontSizes.SubTitle,
+                  Resource.palette.FontSizes.Small,
                   Resource.fonts['Karla-ExtraBold'],
-                  colors.black,
+                  colors.white,
                 ),
               }}
-              style={[styles.btnStyle]}
+              style={styles.btnStyle}
               onPress={onSecondaryClick}
             />
           ) : null}
 
           <CustomButton
             title={props?.primaryBtnText}
-            bgColor={colors.white}
+            bgColor={colors.primaryGreen}
             height={50}
             width="70%"
             labelStyle={{
               ...Resource.palette.StyleText(
-                Resource.palette.FontSizes.SubTitle,
+                Resource.palette.FontSizes.Small,
                 Resource.fonts['Karla-ExtraBold'],
-                colors.black,
+                colors.white,
               ),
             }}
-            style={[styles.btnStyle]}
+            style={styles.btnStyle}
             onPress={onPrimaryClick}
           />
         </View>

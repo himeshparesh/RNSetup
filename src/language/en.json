@@ -12,10 +12,13 @@
     "label": {},
     "buttonTitle": {
       "changeLanguage": "Change Lanugage",
-      "permission": "Permission"
+      "permission": "Permission",
+      "settings": "Settings",
+      "cancel": "Cancel"
     },
     "alerts": {
-      "noInternetConnectionMsg": "No Internet Connection, Make sure you are connected to Internet!"
+      "noInternetConnectionMsg": "No Internet Connection, Make sure you are connected to Internet!",
+      "pleaseAllowPermission": "Please allow Permission from settings."
     },
     "placeholder": {},
     "validationErrors": {},

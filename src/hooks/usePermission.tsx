@@ -1,6 +1,10 @@
+import {AleartDialog} from '@root/components/AleartDialog';
 import {ToastType} from '@root/types/types';
 import {Utils} from '@root/utils';
-import {Alert, Linking, Platform} from 'react-native';
+import {isAndroid} from '@root/utils/Constants';
+import React, {useState} from 'react';
+import {useTranslation} from 'react-i18next';
+import {Linking} from 'react-native';
 import {
   Permission,
   PermissionStatus,
@@ -10,21 +14,33 @@ import {
 } from 'react-native-permissions';
 
 export const usePermission = () => {
-  const openAppSettings = () => {
-    Alert.alert('', 'Please Allow Permission from settings.', [
-      {
-        text: 'Cancel',
-        onPress: () => {},
-      },
-      {
-        text: 'Settings',
-        onPress: () => {
-          if (Platform.OS === 'android') {
-            Linking.openSettings();
-          } else Linking.openURL('app-settings:');
-        },
-      },
-    ]);
+  const {t} = useTranslation();
+  const [title, setTitle] = useState<string>('Permission');
+  const [message, setMessage] = useState<string>(
+    t('alerts.pleaseAllowPermission'),
+  );
+  const [showAlert, setShowAlert] = useState<boolean>(false);
+
+  const onPrimaryBtnClick = () => {
+    if (isAndroid) {
+      Linking.openSettings();
+    } else Linking.openURL('app-settings:');
+    setShowAlert(false);
+  };
+
+  const AppSettingsAlert = () => {
+    return (
+      <AleartDialog
+        title={title}
+        message={message}
+        visible={showAlert}
+        showBothBtn
+        primaryBtnText={t('buttonTitle.settings')}
+        secondaryBtnText={t('buttonTitle.cancel')}
+        onPrimaryBtnClick={onPrimaryBtnClick}
+        onCloseClick={() => setShowAlert(false)}
+      />
+    );
   };
 
   const checkAndRequestPermission = async (permission: Permission) => {
@@ -48,10 +64,10 @@ export const usePermission = () => {
         newPermissionStatus === RESULTS.DENIED ||
         newPermissionStatus === RESULTS.BLOCKED
       ) {
-        openAppSettings();
+        setShowAlert(true);
       }
     }
   };
 
-  return {checkAndRequestPermission};
+  return {checkAndRequestPermission, AppSettingsAlert};
 };

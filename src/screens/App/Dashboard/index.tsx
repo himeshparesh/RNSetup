@@ -17,7 +17,7 @@ import {PERMISSIONS} from 'react-native-permissions';
 const Dashboard = () => {
   const dispatch = useDispatch();
   const {t} = useTranslation();
-  const {checkAndRequestPermission} = usePermission();
+  const {checkAndRequestPermission, AppSettingsAlert} = usePermission();
 
   const handleLogout = () => {
     dispatch(storeToken(''));
@@ -76,6 +76,8 @@ const Dashboard = () => {
         height={moderateVerticalScale(44)}
         width={'100%'}
       />
+
+      <AppSettingsAlert />
     </View>
   );
 };
