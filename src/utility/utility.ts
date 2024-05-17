@@ -62,14 +62,17 @@ export const alertOkButton = {
   onPress: () => console.log('OK Pressed'),
 };
 
-export const showMessage = (text: string, center: string = 'center') =>
-  WToast.show({
-    data: text,
-    backgroundColor: R.colors.lightBlueNeutral,
-    textColor: R.colors.black,
-    textAlign: center,
-    duration: WToast.duration.SHORT,
-  });
+export const showMessage = (text: string, center: string = 'center') => {
+  console.log('Message: ', text);
+
+  //  WToast.show({
+  //   data: text,
+  //   backgroundColor: R.colors.lightBlueNeutral,
+  //   textColor: R.colors.black,
+  //   textAlign: center,
+  //   duration: WToast.duration.SHORT,
+  // });
+};
 
 export const alertCancelButton = {
   text: 'Cancel',
