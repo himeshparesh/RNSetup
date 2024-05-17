@@ -1,11 +1,6 @@
-import {
-  ScaledSheet,
-  moderateScale,
-  moderateVerticalScale,
-} from 'react-native-size-matters';
-import colors from './colors';
-import {R} from '.';
-import {U} from '@root/utility';
+import {colors} from '@root/theme/theme';
+import {ScaledSheet, moderateScale} from 'react-native-size-matters';
+import {Resource} from '.';
 
 export default ScaledSheet.create({
   rootContainer: {
@@ -56,22 +51,25 @@ export default ScaledSheet.create({
     alignItems: 'center',
     paddingHorizontal: 15,
   },
-  flex1Bg: {flex: 1, backgroundColor: R.colors.white, paddingTop: 35},
+  flex1Bg: {flex: 1, backgroundColor: colors.white, paddingTop: 35},
   centerViewAligned: {
     justifyContent: 'center',
     alignItems: 'center',
   },
   titleTxt: {
-    ...R.palette.StyleText(
-      R.palette.FontSizes.Small,
-      R.fonts['Karla-Regular'],
-      R.colors.gray,
+    ...Resource.palette.StyleText(
+      Resource.palette.FontSizes.Small,
+      Resource.fonts['Karla-Regular'],
+      colors.gray,
     ),
   },
-  dividerView: {borderBottomWidth: 0.5, borderBottomColor: R.colors.grayD3D4D5},
+  dividerView: {
+    borderBottomWidth: 0.5,
+    borderBottomColor: colors.grayD3D4D5,
+  },
   dividerViewThik: {
     borderBottomWidth: moderateScale(1),
-    borderBottomColor: R.colors.grayD3D4D5,
+    borderBottomColor: colors.grayD3D4D5,
   },
   txtStrikeThrough: {
     textDecorationLine: 'line-through',
@@ -80,18 +78,18 @@ export default ScaledSheet.create({
   dashedStyle: {
     borderStyle: 'dashed',
     borderWidth: 1,
-    borderColor: R.colors.grayD3D4D5,
+    borderColor: colors.grayD3D4D5,
   },
   centerAlignStyle: {
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   bold20TextStyle: {
     fontSize: 20,
-    color: R.colors.black,
+    color: colors.black,
   },
   bold16TextStyle: {
     fontSize: 16,
-    color: R.colors.black
+    color: colors.black,
   },
 });

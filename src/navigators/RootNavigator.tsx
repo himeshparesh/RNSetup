@@ -1,7 +1,7 @@
 import {NavigationContainer} from '@react-navigation/native';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {R} from '@root/res';
+import {Resource} from '@root/res';
 import {keys} from '@root/res/global';
 import {RootState} from '@root/store/configureStore';
 import {storeToken} from '@root/store/reducers/Login/LoginSlice';
@@ -34,14 +34,17 @@ export default function RootNavigator() {
   useEffect(() => {
     async function checkIsLogined() {
       try {
-        AsyncStorage.getItem(R.globals.keys.KEY_USER_DATA, (error, result) => {
-          if (!error && result) {
-            var res = JSON.parse(result);
-            dispatch(storeToken(res?.data?.api_token));
-          } else {
-            dispatch(storeToken(''));
-          }
-        });
+        AsyncStorage.getItem(
+          Resource.globals.keys.KEY_USER_DATA,
+          (error, result) => {
+            if (!error && result) {
+              var res = JSON.parse(result);
+              dispatch(storeToken(res?.data?.api_token));
+            } else {
+              dispatch(storeToken(''));
+            }
+          },
+        );
       } catch (e) {
         console.log('Error in app navigation', e);
       }

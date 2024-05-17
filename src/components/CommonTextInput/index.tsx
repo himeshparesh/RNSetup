@@ -1,5 +1,11 @@
+import {Resource} from '@root/res';
+import appStyles from '@root/res/appStyles';
 import colors from '@root/res/colors';
+import fonts from '@root/res/fonts';
+import {FontSizes} from '@root/res/palette';
+import {DropDownIcon, PasswordHide, PasswordVisible} from '@root/res/svgImages';
 import React from 'react';
+import {useTranslation} from 'react-i18next';
 import {
   Keyboard,
   KeyboardTypeOptions,
@@ -9,15 +15,8 @@ import {
   View,
 } from 'react-native';
 import {TextInput} from 'react-native-paper';
+import {TextStyle, ViewStyle, moderateScale} from 'react-native-size-matters';
 import styles from './styles';
-import {R} from '@root/res';
-import {FontSizes} from '@root/res/palette';
-import fonts from '@root/res/fonts';
-import appStyles from '@root/res/appStyles';
-import {DropDownIcon, PasswordHide, PasswordVisible} from '@root/res/svgImages';
-import {moderateScale, ScaledSheet} from 'react-native-size-matters';
-import {TextStyle, ViewStyle} from 'react-native-size-matters';
-import {useTranslation} from 'react-i18next';
 
 interface Props {
   placeHolder?: string;
@@ -103,7 +102,7 @@ const CommonTextInput = ({
         keyboardType={keyboardType}
         multiline={isMultiline}
         caretHidden={caretHidden}
-        contentStyle={R.palette.StyleText(
+        contentStyle={Resource.palette.StyleText(
           FontSizes.small15,
           fonts['Karla-Medium'],
         )}

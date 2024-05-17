@@ -1,8 +1,8 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NativeStackNavigationHelpers} from '@react-navigation/native-stack/lib/typescript/src/types';
-import {R} from '@root/res';
-import S from '@root/screens';
+import {Resource} from '@root/res';
+import Screens from '@root/screens';
 import React from 'react';
 import TabBar from './TabBarr';
 
@@ -15,8 +15,8 @@ const DashboardStack = createNativeStackNavigator();
 function DashboardStackNav() {
   const dashboardNavList = [
     {
-      name: R.globals.navigationRouteNames.dashboard,
-      component: S.App.Dashboard,
+      name: Resource.globals.navigationRouteNames.dashboard,
+      component: Screens.App.Dashboard,
       options: commonNavOption,
     },
     // ...StackNavList,

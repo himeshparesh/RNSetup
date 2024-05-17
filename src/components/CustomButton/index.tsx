@@ -1,4 +1,4 @@
-import {R} from '@root/res';
+import {colors} from '@root/theme/theme';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {
@@ -36,7 +36,7 @@ export interface Props {
 const CustomButton = ({
   isIconButton,
   isSquare,
-  icon, //= R.images.header.back,
+  icon, //= Resource.images.header.back,
   height,
   width,
   bgColor,
@@ -59,7 +59,7 @@ const CustomButton = ({
       width: isSquare ? undefined : width || undefined,
       aspectRatio: isSquare ? 1 : undefined,
       padding: moderateScale(4),
-      backgroundColor: bgColor || R.colors.transparent,
+      backgroundColor: bgColor || colors.transparent,
     },
     styleImage: {
       height: '100%',
@@ -78,7 +78,7 @@ const CustomButton = ({
         style={[styles.styleButton, {justifyContent: 'center'}, props.style]}>
         <ActivityIndicator
           size={'small'}
-          color={props?.loadingColor || R.colors.primaryGreen}
+          color={props?.loadingColor || colors.primaryGreen}
         />
       </View>
     ) : (
@@ -106,7 +106,7 @@ const CustomButton = ({
         {isLoading ? (
           <ActivityIndicator
             size={'small'}
-            color={props?.loadingColor || R.colors.primaryGreen}
+            color={props?.loadingColor || colors.primaryGreen}
           />
         ) : isSvg ? (
           icon
@@ -120,7 +120,7 @@ const CustomButton = ({
         )}
         {badgeNumber !== undefined && Number(badgeNumber) > 0 && (
           <Badge
-            backgroundColor={R.colors.primaryGreen}
+            backgroundColor={colors.primaryGreen}
             label={badgeNumber}
             containerStyle={styles.badgeContainer}
           />

@@ -1,11 +1,11 @@
+import {colors} from '@root/theme/theme';
 import React, {Fragment} from 'react';
-import {View, SafeAreaView, StatusBar, StyleSheet} from 'react-native';
-import {R} from '@root/res';
+import {SafeAreaView, StatusBar, StyleSheet, View} from 'react-native';
 
 function SafeArea({
-  topColor = R.colors.white,
-  bottomColor = R.colors.white,
-  statusBarColor = R.colors.white,
+  topColor = colors.white,
+  bottomColor = colors.white,
+  statusBarColor = colors.white,
   ...props
 }) {
   const styles = StyleSheet.create({

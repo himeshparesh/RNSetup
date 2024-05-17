@@ -1,4 +1,5 @@
-import {R} from '@root/res';
+import {Resource} from '@root/res';
+import {colors} from '@root/theme/theme';
 import {
   ScaledSheet,
   moderateScale,
@@ -15,10 +16,10 @@ export default ScaledSheet.create({
   },
   priceTxt: {
     fontWeight: '700',
-    ...R.palette.StyleText(
-      R.palette.FontSizes.Medium,
-      R.fonts['Karla-Bold'],
-      R.colors.gray1,
+    ...Resource.palette.StyleText(
+      Resource.palette.FontSizes.Medium,
+      Resource.fonts['Karla-Bold'],
+      colors.gray1,
     ),
   },
   thumbView: {
@@ -26,18 +27,18 @@ export default ScaledSheet.create({
     height: moderateVerticalScale(20),
     borderRadius: moderateVerticalScale(20),
     borderWidth: moderateScale(4),
-    borderColor: R.colors.primaryGreen,
+    borderColor: colors.primaryGreen,
     backgroundColor: '#ffffff',
   },
   railView: {
     flex: 1,
     height: moderateVerticalScale(4),
     borderRadius: moderateScale(4),
-    backgroundColor: R.colors.lightGrayE5E5,
+    backgroundColor: colors.lightGrayE5E5,
   },
   railSelected: {
     height: moderateVerticalScale(4),
-    backgroundColor: R.colors.primaryGreen,
+    backgroundColor: colors.primaryGreen,
     borderRadius: moderateScale(2),
   },
 });

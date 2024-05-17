@@ -1,8 +1,9 @@
 import React from 'react';
 
-import {R} from '@root/res';
+import {Resource} from '@root/res';
 import {Dashboard, DashboardFilled} from '@root/res/svgImages';
-import {U} from '@root/utility';
+import {colors} from '@root/theme/theme';
+import {Utility} from '@root/utility';
 import {useTranslation} from 'react-i18next';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 import {moderateScale} from 'react-native-size-matters';
@@ -19,9 +20,9 @@ const TabBar = ({state, descriptors, navigation}: any) => {
         let labelColor;
         const getSVGIcons = () => {
           switch (route.name) {
-            case R.globals.navigationRouteNames.dashboard:
+            case Resource.globals.navigationRouteNames.dashboard:
               screenLabel = 'Dashboard';
-              labelColor = isFocused ? R.colors.primaryGreen : R.colors.gray;
+              labelColor = isFocused ? colors.primaryGreen : colors.gray;
               return isFocused ? <DashboardFilled /> : <Dashboard />;
 
             default:
@@ -61,11 +62,11 @@ const styles = StyleSheet.create({
   mainContainer: {
     flexDirection: 'row',
     position: 'absolute',
-    bottom: U.utility.getOS() == 'ios' ? 0 : 0,
-    backgroundColor: R.colors.white,
+    bottom: Utility.utility.getOS() == 'ios' ? 0 : 0,
+    backgroundColor: colors.white,
     borderRadius: moderateScale(35),
     borderWidth: moderateScale(1),
-    borderColor: R.colors.gray,
+    borderColor: colors.gray,
     marginHorizontal: moderateScale(20),
   },
   mainItemContainer: {
@@ -76,10 +77,10 @@ const styles = StyleSheet.create({
     borderRadius: moderateScale(1),
   },
   txtTab: {
-    ...R.palette.StyleText(
-      R.palette.FontSizes.SubTitle,
-      R.fonts['Karla-Medium'],
-      R.colors.black,
+    ...Resource.palette.StyleText(
+      Resource.palette.FontSizes.SubTitle,
+      Resource.fonts['Karla-Medium'],
+      colors.black,
     ),
     marginTop: moderateScale(4),
   },

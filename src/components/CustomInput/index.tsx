@@ -1,8 +1,25 @@
-import React from 'react';
-import {StyleSheet, View, Text, TextInput} from 'react-native';
-import {InputPropsType} from '@root/types/components';
-import {R} from '@root/res';
+import {Resource} from '@root/res';
 import {FontSizes} from '@root/res/palette';
+import {colors} from '@root/theme/theme';
+import React from 'react';
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  TextInputProps,
+  TextStyle,
+  View,
+  ViewStyle,
+} from 'react-native';
+
+interface InputPropsType extends TextInputProps {
+  testID?: string;
+  style?: ViewStyle;
+  error?: string;
+  title?: string;
+  txtTitleStyle?: TextStyle;
+  mainStyle?: ViewStyle;
+}
 
 const CustomInput = ({
   mainStyle,
@@ -17,10 +34,10 @@ const CustomInput = ({
       <Text style={[styles.txtDefaultStyle, txtTitleStyle]}>{title}</Text>
       <TextInput
         {...rest}
-        placeholderTextColor={R.colors.graySearch}
+        placeholderTextColor={colors.graySearch}
         style={[
           styles.input,
-          {color: R.colors.black, paddingLeft: 20},
+          {color: colors.black, paddingLeft: 20},
           {...style},
         ]}
       />
@@ -28,7 +45,7 @@ const CustomInput = ({
       <Text
         style={[
           styles.error,
-          {color: error ? R.colors.red : R.colors.transparent},
+          {color: error ? colors.red : colors.transparent},
         ]}>
         {error}
       </Text>
@@ -45,7 +62,7 @@ const styles = StyleSheet.create({
     marginBottom: -5,
   },
   txtDefaultStyle: {
-    color: R.colors.black,
+    color: colors.black,
     fontSize: FontSizes.Small,
     marginVertical: 10,
   },
@@ -54,7 +71,7 @@ const styles = StyleSheet.create({
     minHeight: 50,
   },
   error: {
-    ...R.palette.StyleText(R.palette.FontSizes.Small),
+    ...Resource.palette.StyleText(Resource.palette.FontSizes.Small),
     marginVertical: 5,
     height: 15,
   },

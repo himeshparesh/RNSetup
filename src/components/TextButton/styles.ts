@@ -1,11 +1,13 @@
-import {R} from '@root/res';
-import {ScaledSheet, moderateScale} from 'react-native-size-matters';
+import {Resource} from '@root/res';
+import {colors} from '@root/theme/theme';
+import {ScaledSheet} from 'react-native-size-matters';
+
 export default ScaledSheet.create({
   txtTitle: {
-    ...R.palette.StyleText(
-      R.palette.FontSizes.SubTitle,
-      R.fonts['Karla-ExtraBold'],
-      R.colors.black,
+    ...Resource.palette.StyleText(
+      Resource.palette.FontSizes.SubTitle,
+      Resource.fonts['Karla-ExtraBold'],
+      colors.black,
     ),
   },
 });

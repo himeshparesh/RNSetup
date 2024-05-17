@@ -1,4 +1,4 @@
-import {R} from '@root/res';
+import {Resource} from '@root/res';
 import appStyles from '@root/res/appStyles';
 import React, {useCallback, useEffect, useState} from 'react';
 import {Text, View} from 'react-native';

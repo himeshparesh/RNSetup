@@ -3,10 +3,10 @@ import * as Constants from './Constants';
 import NavigationService from './NavigationService';
 import {Helper} from './helper';
 
-const U = {
+const Utility = {
   utility,
   Constants,
   NavigationService,
   Helper,
 };
-export {U};
+export {Utility};

@@ -1,12 +1,12 @@
-import colors from '@root/res/colors';
+import {Resource} from '@root/res';
+import fonts from '@root/res/fonts';
+import {FontSizes} from '@root/res/palette';
+import {colors} from '@root/theme/theme';
 import {
   ScaledSheet,
   moderateScale,
   moderateVerticalScale,
 } from 'react-native-size-matters';
-import {R} from '@root/res';
-import {FontSizes} from '@root/res/palette';
-import fonts from '@root/res/fonts';
 
 export default ScaledSheet.create({
   textInputStyle: {
@@ -38,12 +38,12 @@ export default ScaledSheet.create({
     position: 'absolute',
     top: moderateVerticalScale(12),
     right: moderateScale(10),
-    backgroundColor: R.colors.white,
+    backgroundColor: colors.white,
     paddingHorizontal: moderateScale(6),
-    ...R.palette.StyleText(
+    ...Resource.palette.StyleText(
       FontSizes.SubTitle,
       fonts['Karla-SemiBold'],
-      R.colors.gray,
+      colors.gray,
     ),
   },
 });

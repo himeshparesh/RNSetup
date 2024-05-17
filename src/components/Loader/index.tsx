@@ -1,11 +1,11 @@
-import React from 'react';
-import {View, Modal, ActivityIndicator, StyleSheet} from 'react-native';
-import {R} from '@root/res';
+import {colors} from '@root/theme/theme';
 import {useTheme} from '@root/theme/useTheme';
+import React from 'react';
+import {ActivityIndicator, Modal, StyleSheet, View} from 'react-native';
 
 type props = {loading: boolean; color: string};
 
-const Loader = ({loading, color = R.colors.primaryGreen}: props) => {
+const Loader = ({loading, color = colors.primaryGreen}: props) => {
   const {theme} = useTheme();
   return (
     <Modal

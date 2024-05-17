@@ -1,7 +1,7 @@
 import {api, errors, Links} from './apiConsts';
-const A = {
+const Api = {
   api,
   errors,
   Links,
 };
-export {A};
+export {Api};

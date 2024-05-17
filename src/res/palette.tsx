@@ -1,5 +1,4 @@
 import {moderateScale, moderateVerticalScale} from 'react-native-size-matters';
-import colors from './colors';
 import {
   ImageStyle,
   ViewStyle,
@@ -7,6 +6,7 @@ import {
   FlexStyle,
   Platform,
 } from 'react-native';
+import {colors} from '@root/theme/theme';
 export enum FontSizes {
   Header = 30,
   Body = 24,

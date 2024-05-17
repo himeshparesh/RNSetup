@@ -1,6 +1,7 @@
-import {R} from '@root/res';
-import colors from '@root/res/colors';
+import {Resource} from '@root/res';
+import {colors} from '@root/theme/theme';
 import {ScaledSheet, moderateScale} from 'react-native-size-matters';
+
 export default ScaledSheet.create({
   renderItemView: {
     marginHorizontal: moderateScale(8),
@@ -12,10 +13,10 @@ export default ScaledSheet.create({
   txtTitle: {
     marginBottom: moderateScale(20),
     marginLeft: moderateScale(16),
-    ...R.palette.StyleText(
-      R.palette.FontSizes.Title,
-      R.fonts['Karla-ExtraBold'],
-      R.colors.black,
+    ...Resource.palette.StyleText(
+      Resource.palette.FontSizes.Title,
+      Resource.fonts['Karla-ExtraBold'],
+      colors.black,
     ),
   },
 });

@@ -1,6 +1,5 @@
 import {useNavigation} from '@react-navigation/native';
-import {R} from '@root/res';
-// import {BackHeaderIcon} from '@root/res/svgImages';
+import {colors} from '@root/theme/theme';
 import {Constants} from '@root/utility/Constants';
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
@@ -32,7 +31,7 @@ const ComingSoonComp = props => {
           alignItems: 'center',
           justifyContent: 'center',
         }}>
-        <Text style={{fontSize: 30, color: R.colors.black}}>Coming Soon</Text>
+        <Text style={{fontSize: 30, color: colors.black}}>Coming Soon</Text>
       </View>
     </View>
   );

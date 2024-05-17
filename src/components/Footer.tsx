@@ -1,4 +1,4 @@
-import {R} from '@root/res';
+import {colors} from '@root/theme/theme';
 import React from 'react';
 import {ActivityIndicator, View} from 'react-native';
 type FooterProps = {
@@ -9,7 +9,7 @@ export const Footer: React.FC<FooterProps> = (props: FooterProps) => {
   if (props?.loading) {
     return (
       <View>
-        <ActivityIndicator size={'large'} color={R.colors.primaryGreen} />
+        <ActivityIndicator size={'large'} color={colors.primaryGreen} />
       </View>
     );
   } else {

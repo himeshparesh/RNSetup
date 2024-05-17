@@ -1,6 +1,7 @@
-import {R} from '@root/res';
+import {Resource} from '@root/res';
 import appStyles from '@root/res/appStyles';
 import {EmptyStock} from '@root/res/svgImages';
+import {colors} from '@root/theme/theme';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {ScaledSheet, moderateVerticalScale} from 'react-native-size-matters';
@@ -27,7 +28,7 @@ export const EmptyView: React.FC<EmptyViewProps> = (props: EmptyViewProps) => {
         <CustomButton
           label={t('buttonTitle.backToHome')}
           height={45}
-          bgColor={R.colors.primaryGreen}
+          bgColor={colors.primaryGreen}
           width={'90%'}
           labelStyle={styles.regularTxtStyle}
           onPress={props?.handleBackToHome}
@@ -54,23 +55,23 @@ const styles = ScaledSheet.create({
     marginBottom: moderateVerticalScale(40),
   },
   messageText: {
-    ...R.palette.StyleText(
-      R.palette.FontSizes.Medium,
-      R.fonts['Karla-Medium'],
-      R.colors.darkGray,
+    ...Resource.palette.StyleText(
+      Resource.palette.FontSizes.Medium,
+      Resource.fonts['Karla-Medium'],
+      colors.darkGray,
     ),
   },
   txtEmpty: {
     paddingTop: moderateVerticalScale(15),
-    ...R.palette.StyleText(
-      R.palette.FontSizes.Medium,
-      R.fonts['Karla-Medium'],
-      R.colors.darkGray,
+    ...Resource.palette.StyleText(
+      Resource.palette.FontSizes.Medium,
+      Resource.fonts['Karla-Medium'],
+      colors.darkGray,
     ),
   },
-  regularTxtStyle: R.palette.StyleText(
-    R.palette.FontSizes.Medium,
-    R.fonts['Karla-Regular'],
-    R.colors.white,
+  regularTxtStyle: Resource.palette.StyleText(
+    Resource.palette.FontSizes.Medium,
+    Resource.fonts['Karla-Regular'],
+    colors.white,
   ),
 });

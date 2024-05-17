@@ -1,10 +1,10 @@
-import {R} from '@root/res';
+import {colors} from '@root/theme/theme';
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: R.colors.appBg,
+    backgroundColor: colors.appBg,
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',

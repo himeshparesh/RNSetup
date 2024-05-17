@@ -1,9 +1,9 @@
+import {Resource} from '@root/res';
+import {colors} from '@root/theme/theme';
 import React, {useState} from 'react';
-import {View, Text, ImageSourcePropType, StyleSheet} from 'react-native';
-import {R} from '@root/res';
-import CustomButton from '../CustomButton';
-import {U} from '@root/utility';
+import {ImageSourcePropType, StyleSheet, Text, View} from 'react-native';
 import {moderateScale} from 'react-native-size-matters';
+import CustomButton from '../CustomButton';
 
 export interface Props {
   useSeparator?: boolean;
@@ -114,7 +114,7 @@ const Header = ({
     <View
       style={[
         styles.styleContainer,
-        {backgroundColor: bgColor || R.colors.white},
+        {backgroundColor: bgColor || colors.white},
       ]}>
       <View style={styles.styleSubContainer}>
         {renderSideView()}
@@ -139,7 +139,7 @@ const Header = ({
 const styles = StyleSheet.create({
   styleSeparator: {
     height: moderateScale(1),
-    backgroundColor: R.colors.lightGrayE5E5,
+    backgroundColor: colors.lightGrayE5E5,
     width: '100%',
   },
   styleContainer: {
@@ -158,10 +158,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5,
     height: 'auto',
     flex: 1,
-    ...R.palette.StyleText(
-      R.palette.FontSizes.Title,
-      R.fonts['Karla-Bold'],
-      R.colors.black,
+    ...Resource.palette.StyleText(
+      Resource.palette.FontSizes.Title,
+      Resource.fonts['Karla-Bold'],
+      colors.black,
     ),
   },
   sideViewStyle: {

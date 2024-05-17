@@ -1,6 +1,7 @@
+import {Resource} from '@root/res';
+import {colors} from '@root/theme/theme';
 import React from 'react';
-import {View, TextInput, StyleSheet} from 'react-native';
-import {R} from '@root/res';
+import {StyleSheet, TextInput, View} from 'react-native';
 import CustomButton from '../CustomButton';
 
 export default function searchView({
@@ -13,10 +14,9 @@ export default function searchView({
   onCancel,
   styleContainer = {},
 }) {
-
   const styles = StyleSheet.create({
     searchView: {
-      backgroundColor: R.colors.greenLight,
+      backgroundColor: colors.greenLight,
       height: 75,
       width: '90%',
       flexDirection: 'row',
@@ -25,12 +25,12 @@ export default function searchView({
     },
     subContainer: {justifyContent: 'center', flex: 1},
     inputStyle: {
-      ...R.palette.StyleTextInput,
+      ...Resource.palette.StyleTextInput,
       height: 50,
       paddingHorizontal: 45,
       borderRadius: 10,
-      color: R.colors.black,
-      borderColor: R.colors.black,
+      color: colors.black,
+      borderColor: colors.black,
     },
   });
 
@@ -41,13 +41,13 @@ export default function searchView({
       <View style={styles.subContainer}>
         <TextInput
           placeholder={placeHolder}
-          placeholderTextColor={R.colors.black}
+          placeholderTextColor={colors.black}
           style={styles.inputStyle}
           multiline={false}
           numberOfLines={1}
           autoCapitalize={'none'}
           autoFocus={false}
-          selectionColor={R.colors.black}
+          selectionColor={colors.black}
           returnKeyType={'search'}
           // keyboardType="web-search"
           onChangeText={onChange ?? voidMethod}
@@ -56,8 +56,8 @@ export default function searchView({
         />
         <CustomButton
           isIconButton={true}
-          icon={R.images.icons.defaultImg}
-          // tintColor={R.colors.white80}
+          icon={Resource.images.icons.defaultImg}
+          // tintColor={colors.white80}
           height={22}
           resizeMode={'contain'}
           style={{position: 'absolute', left: 15, padding: 0}}
@@ -66,8 +66,8 @@ export default function searchView({
         {(value ?? '').length > 0 && (
           <CustomButton
             isIconButton={true}
-            icon={R.images.icons.defaultImg}
-            tintColor={R.colors.black}
+            icon={Resource.images.icons.defaultImg}
+            tintColor={colors.black}
             height={28}
             resizeMode={'contain'}
             style={{position: 'absolute', right: 5, padding: 3}}

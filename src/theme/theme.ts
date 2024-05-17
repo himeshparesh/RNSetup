@@ -1,4 +1,3 @@
-
 export interface themeType {
   name: string;
   primaryText: string;
@@ -17,7 +16,6 @@ interface themesType {
   light: themeType;
   dark: themeType;
 }
-
 
 // Themes:- Can alter values here. Can only be consumed through Context (see useTheme.js file)
 const themes: themesType = {
@@ -49,4 +47,14 @@ const themes: themesType = {
   },
 };
 
-export { themes};
+const colors = {
+  appBg: '#F5F5F5',
+  primaryGreen: '#00A99D',
+  black: '#000000',
+  white: '#FFFFFF',
+  greenLight: '#00A99D1A',
+  red: '#cd0000',
+  red1: '#FF4A4A',
+};
+
+export {themes, colors};

@@ -1,8 +1,6 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {navigationRouteNames} from '@root/res/global';
-import S from '@root/screens';
-import {RootState} from '@root/types/redux';
-import {Helper} from '@root/utility/helper';
+import {RootState} from '@root/store/configureStore';
 import React, {useEffect, useState} from 'react';
 import {useSelector} from 'react-redux';
 import TabNavigator from './TabNavigator';

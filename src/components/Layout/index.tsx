@@ -1,9 +1,13 @@
-import {LayoutPropsType} from '@root/types/components';
-import React from 'react';
-import {View} from 'react-native';
+import {useTheme} from '@root/theme/useTheme';
+import React, {ReactNode} from 'react';
+import {StyleProp, View, ViewStyle} from 'react-native';
 import SafeArea from '../SafeArea';
 import styles from './styles';
-import { useTheme } from '@root/theme/useTheme';
+
+interface LayoutPropsType {
+  children: ReactNode;
+  style?: StyleProp<ViewStyle>;
+}
 
 const Layout = ({children, style}: LayoutPropsType) => {
   const {theme} = useTheme();

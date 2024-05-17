@@ -1,9 +1,9 @@
 import {NativeStackNavigationHelpers} from '@react-navigation/native-stack/lib/typescript/src/types';
-import {A} from '@root/apiManager';
+import {Api} from '@root/apiManager';
 import {AleartDialog} from '@root/components/AleartDialog';
 import CustomButton from '@root/components/CustomButton';
 import CustomText from '@root/components/TextButton';
-import {R} from '@root/res';
+import {Resource} from '@root/res';
 import {loginThunk} from '@root/store/ThunkActions';
 import {storeToken} from '@root/store/reducers/Login/LoginSlice';
 import {useTheme} from '@root/theme/useTheme';
@@ -28,13 +28,13 @@ const Login = (props: Props) => {
 
   const handleLogin = () => {
     dispatch(storeToken('12345'));
-    let url = A.api.login;
+    let url = Api.api.login;
 
     let body = {
       username: 'kminchelle',
       password: '0lelplR',
     };
-    let type = R.globals.APITypes.post;
+    let type = Resource.globals.APITypes.post;
     const data = {url, body, useJSON: true, isToken: false, type};
     dispatch(loginThunk(data));
   };

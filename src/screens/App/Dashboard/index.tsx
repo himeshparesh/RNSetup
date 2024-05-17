@@ -1,7 +1,7 @@
 import CustomButton from '@root/components/CustomButton';
-import {R} from '@root/res';
 import {keys} from '@root/res/global';
 import {storeToken} from '@root/store/reducers/Login/LoginSlice';
+import {colors} from '@root/theme/theme';
 import {Languages} from '@root/utility/Constants';
 import {getLocalDataByKey, setLocalDataByKey} from '@root/utility/utility';
 import i18next from 'i18next';
@@ -48,9 +48,9 @@ const Dashboard = () => {
 
       <CustomButton
         title={t('buttonTitle.changeLanguage')}
-        labelStyle={{color: R.colors.white}}
+        labelStyle={{color: colors.white}}
         onPress={() => changeLanguage()}
-        bgColor={R.colors.primaryGreen}
+        bgColor={colors.primaryGreen}
         height={moderateVerticalScale(44)}
         width={'100%'}
       />

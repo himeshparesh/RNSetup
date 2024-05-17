@@ -1,4 +1,5 @@
-import {R} from '@root/res';
+import {Resource} from '@root/res';
+import {colors} from '@root/theme/theme';
 import {
   ScaledSheet,
   moderateScale,
@@ -8,10 +9,10 @@ import {
 export const styles = ScaledSheet.create({
   itemTxt: {
     fontWeight: '500',
-    ...R.palette.StyleText(
-      R.palette.FontSizes.Small,
-      R.fonts['Karla-Regular'],
-      R.colors.white,
+    ...Resource.palette.StyleText(
+      Resource.palette.FontSizes.Small,
+      Resource.fonts['Karla-Regular'],
+      colors.white,
     ),
     textAlign: 'center',
   },
@@ -23,7 +24,7 @@ export const styles = ScaledSheet.create({
     paddingVertical: moderateVerticalScale(8),
     paddingHorizontal: moderateScale(20),
     borderWidth: 1,
-    borderColor: R.colors.grayD3D4D5,
+    borderColor: colors.grayD3D4D5,
   },
   txtTitle: {
     marginTop: moderateVerticalScale(15),

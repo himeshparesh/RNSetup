@@ -1,11 +1,9 @@
-import App from "./App";
-import Auth from "./Auth";
+import App from './App';
+import Auth from './Auth';
 
-
-
-const S = {
+const Screens = {
   App: App,
   Auth: Auth,
 };
 
-export default S;
+export default Screens;

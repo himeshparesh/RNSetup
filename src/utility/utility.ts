@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import NetInfo from '@react-native-community/netinfo';
-import {R} from '@root/res';
+import {Resource} from '@root/res';
 import {
   Alert,
   Dimensions,
@@ -64,8 +64,8 @@ export const showMessage = (text: string, center: string = 'center') => {
 
   //  WToast.show({
   //   data: text,
-  //   backgroundColor: R.colors.lightBlueNeutral,
-  //   textColor: R.colors.black,
+  //   backgroundColor: colors.lightBlueNeutral,
+  //   textColor: colors.black,
   //   textAlign: center,
   //   duration: WToast.duration.SHORT,
   // });
@@ -111,7 +111,7 @@ export const storeUserData = res => {
   // setAccessToken(res?.data?.api_token);
   // console.log('Saved user data in storeUserData!!', res?.data?.api_token);
   AsyncStorage.setItem(
-    R.globals.keys.KEY_USER_DATA,
+    Resource.globals.keys.KEY_USER_DATA,
     JSON.stringify(res),
     error => {
       if (!error) {
@@ -127,10 +127,13 @@ export const clearUserData = async () => {
   setAccessToken(undefined);
 
   try {
-    await AsyncStorage.removeItem(R.globals.keys.KEY_USER_DATA, async () => {
-      await clearLocalData();
-      console.log('clear data done');
-    });
+    await AsyncStorage.removeItem(
+      Resource.globals.keys.KEY_USER_DATA,
+      async () => {
+        await clearLocalData();
+        console.log('clear data done');
+      },
+    );
   } catch (e) {
     console.log('error in clear user data', e);
   }

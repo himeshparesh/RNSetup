@@ -13,7 +13,9 @@
     "buttonTitle": {
       "changeLanguage": "Change Lanugage"
     },
-    "alerts": {},
+    "alerts": {
+      "noInternetConnectionMsg": "No Internet Connection, Make sure you are connected to Internet!"
+    },
     "placeholder": {},
     "validationErrors": {},
     "successMessage": {}

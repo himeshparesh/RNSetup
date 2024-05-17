@@ -1,7 +1,6 @@
 import appStyles from '@root/res/appStyles';
-import colors from '@root/res/colors';
-import {U} from '@root/utility';
-import {getDeviceHeight} from '@root/utility/utility';
+import {colors} from '@root/theme/theme';
+import {Utility} from '@root/utility';
 import React, {ReactNode} from 'react';
 import {Pressable, StyleProp, View, ViewStyle} from 'react-native';
 import Modal from 'react-native-modal';
@@ -21,8 +20,8 @@ export const BottomModal = (props: Props) => {
       statusBarTranslucent={false}
       avoidKeyboard
       useNativeDriver
-      deviceHeight={U.utility.getDeviceHeight()}
-      deviceWidth={U.utility.getDeviceWidth()}
+      deviceHeight={Utility.utility.getDeviceHeight()}
+      deviceWidth={Utility.utility.getDeviceWidth()}
       hideModalContentWhileAnimating
       onBackdropPress={() => props?.closeModel && props?.closeModel()}
       animationInTiming={500}

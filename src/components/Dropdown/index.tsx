@@ -1,7 +1,8 @@
-import {R} from '@root/res';
+import {Resource} from '@root/res';
 import appStyles from '@root/res/appStyles';
 import fonts from '@root/res/fonts';
 import {FontSizes} from '@root/res/palette';
+import {colors} from '@root/theme/theme';
 import {Constants} from '@root/utility/Constants';
 import React, {useEffect, useState} from 'react';
 import {FlatList, Text, TouchableOpacity} from 'react-native';
@@ -51,7 +52,10 @@ export const Dropdown: React.FC<DropdownProps> = props => {
       onPress={() => handleSelectItem(item)}
       activeOpacity={Constants.activeOpacity}>
       <Text
-        style={R.palette.StyleText(FontSizes.Small, fonts['Karla-Regular'])}>
+        style={Resource.palette.StyleText(
+          FontSizes.Small,
+          fonts['Karla-Regular'],
+        )}>
         {props?.dataKey ? item[props?.dataKey] : item?.value}
       </Text>
     </TouchableOpacity>
@@ -65,8 +69,8 @@ export const Dropdown: React.FC<DropdownProps> = props => {
         <CommonTextInput
           disabled={false}
           key={'color'}
-          outlineColor={R.colors.grayD3D4D5}
-          activeOutlineColor={R.colors.grayD3D4D5}
+          outlineColor={colors.grayD3D4D5}
+          activeOutlineColor={colors.grayD3D4D5}
           pointerEvents={'none'}
           caretHidden
           value={value}

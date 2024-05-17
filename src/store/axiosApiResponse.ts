@@ -1,5 +1,5 @@
-import {A} from '@root/apiManager';
-import {U} from '@root/utility';
+import {Api} from '@root/apiManager';
+import {Utility} from '@root/utility';
 import axios from 'axios';
 import {storeToken} from './reducers/Login/LoginSlice';
 
@@ -15,8 +15,7 @@ export default axiosApiResponse = async (
   let header = {...defaultHeader, ...headers};
 
   body = {...body};
-  console.log('axiosApiResponse header', payload);
-  console.log('axiosApiResponse :', headers, body, type, url, payload);
+  console.log('Axios :', headers, body, type, url, payload);
 
   var formBody = body;
 
@@ -51,12 +50,12 @@ export default axiosApiResponse = async (
     if (err?.response?.status == 401) {
       console.log('in side auth in', err?.response?.status == 401);
       dispatch(storeToken(''));
-      U.utility.clearUserData();
-      U.utility.showMessage(err.response.data.message);
+      Utility.utility.clearUserData();
+      Utility.utility.showMessage(err.response.data.message);
     }
 
     if (err.message == 'Network Error') {
-      U.utility.showMessage(A.errors(0));
+      Utility.utility.showMessage(Api.errors(0));
     }
     return rejectWithValue(err?.response?.data ?? {});
   }

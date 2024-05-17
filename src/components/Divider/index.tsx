@@ -1,5 +1,5 @@
+import {colors} from '@root/theme/theme';
 import React from 'react';
-import {R} from '@root/res';
 import {StyleSheet, View, ViewStyle} from 'react-native';
 
 type Props = {
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   dividerStyle: {
     height: 1,
     width: '100%',
-    backgroundColor: R.colors.lightGray20,
+    backgroundColor: colors.lightGray20,
     marginVertical: 5,
   },
 });

@@ -6,10 +6,7 @@ export const Constants = {
   phone: 'phone',
   social: 'social',
   iMessage: 'iMessage',
-  openPlaystoreForInstagramLinkAnroid:
-    'market://details?id=com.instagram.android',
-  openPlaystoreForInstagramLinkIos: 'market://details?id=com.instagram',
-  englishLanguage: 'en',
+  activeOpacity: '0.8',
 };
 
 export const Languages = {

@@ -1,4 +1,5 @@
-import {R} from '@root/res';
+import {Resource} from '@root/res';
+import {colors} from '@root/theme/theme';
 import {
   ScaledSheet,
   moderateScale,
@@ -7,7 +8,7 @@ import {
 
 export default ScaledSheet.create({
   container: {
-    backgroundColor: R.colors.white,
+    backgroundColor: colors.white,
     borderRadius: moderateScale(10),
     marginHorizontal: moderateScale(16),
   },
@@ -18,23 +19,23 @@ export default ScaledSheet.create({
     alignItems: 'center',
   },
   txtTitle: {
-    ...R.palette.StyleText(
-      R.palette.FontSizes.Medium,
-      R.fonts['Karla-Bold'],
-      R.colors.gray1,
+    ...Resource.palette.StyleText(
+      Resource.palette.FontSizes.Medium,
+      Resource.fonts['Karla-Bold'],
+      colors.gray1,
     ),
   },
   txtLabel: {
     marginStart: moderateScale(8),
-    backgroundColor: R.colors.greenLight,
+    backgroundColor: colors.greenLight,
     borderRadius: 8,
     overflow: 'hidden',
     paddingHorizontal: moderateScale(6),
     paddingVertical: moderateScale(2),
-    ...R.palette.StyleText(
-      R.palette.FontSizes.Medium,
-      R.fonts['Karla-Medium'],
-      R.colors.primaryGreen,
+    ...Resource.palette.StyleText(
+      Resource.palette.FontSizes.Medium,
+      Resource.fonts['Karla-Medium'],
+      colors.primaryGreen,
     ),
   },
 });
