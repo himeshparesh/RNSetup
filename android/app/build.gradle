@@ -4,8 +4,11 @@ apply plugin: "com.facebook.react"
 
 project.ext.envConfigFiles = [
         productiondebug: ".env.production",
+        productionRelease: ".env.production",
         developmentdebug: ".env.development",
-        stagingdebug: ".env.staging"
+        developmentRelease: ".env.development",
+        stagingdebug: ".env.staging",
+        stagingdeRelease: ".env.staging"
 ]
 apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 
@@ -82,6 +85,19 @@ android {
     compileSdk rootProject.ext.compileSdkVersion
 
     namespace "com.rndemo"
+    flavorDimensions+= "env"
+    productFlavors {
+        development {
+//            applicationIdSuffix ".dev" //Add suffix id if want to update the package name
+//            resValue "string", "app_name", "RN Demo Dev" //If want to show the app name env wise.
+        }
+        staging {
+//            resValue "string", "app_name", "RN Demo Stage"
+        }
+        production {
+//            resValue "string", "app_name", "RN Demo"
+        }
+    }
     defaultConfig {
         applicationId "com.rndemo"
         minSdkVersion rootProject.ext.minSdkVersion

@@ -1,4 +1,3 @@
-import i18next from 'i18next';
 import React, {useEffect} from 'react';
 import {LogBox, useColorScheme} from 'react-native';
 import {WRootToastApp} from 'react-native-smart-tip';
@@ -7,11 +6,8 @@ import {Provider} from 'react-redux';
 import {ENV, ENV_BASE_URL} from '../env';
 import NetworkInfo from './components/NetworkInfo';
 import {RootNavigator} from './navigators';
-import {keys} from './res/global';
 import {store} from './store/configureStore';
 import {ThemeProvider, useTheme} from './theme/useTheme';
-import {Languages} from './utility/Constants';
-import {getLocalDataByKey} from './utility/utility';
 
 LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
 LogBox.ignoreAllLogs(); //Ignore all log notifications

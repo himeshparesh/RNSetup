@@ -1,15 +1,7 @@
-const env_DEV = {
-  BASE_URL: 'https://dummyjson.com/auth',
-};
-
-const env_PROD = {
-  BASE_URL: 'https://prod.com/auth',
-};
-
-const EnvData = env_DEV;
+import {ENV_BASE_URL} from '../../env';
 
 const api = {
-  login: `${EnvData.BASE_URL}/login`,
+  login: `${ENV_BASE_URL}/login`,
 };
 
 const statusCode = {
@@ -58,4 +50,4 @@ const errors = statusCode => {
   }
 };
 
-export {Links, api, errors, statusCode, EnvData};
+export {Links, api, errors, statusCode};
