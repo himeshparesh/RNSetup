@@ -1,6 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit';
 import {loginThunk} from '@root/store/ThunkActions';
-import {storeUserData} from '@root/utility/utility';
+import {Utils} from '@root/utils';
 
 let initialState = {
   token: '',
@@ -16,7 +16,7 @@ export const LoginSlice = createSlice({
     storeToken(state, action) {
       state.token = action.payload ?? '';
       state.data = {};
-      storeUserData({data: {api_token: action.payload ?? ''}}); // temp to store token in async remove it later on
+      Utils.Utility.storeUserData({data: {api_token: action.payload ?? ''}}); // temp to store token in async remove it later on
     },
     storeUserLoginInfo(state, action) {
       state.data = action.payload ?? {};

@@ -19,6 +19,7 @@ export const navigationRouteNames = {
   splash: 'Splash',
   login: 'Login',
   dashboard: 'Dashboard',
+  dashboardTab: 'DashboardTab',
   tabNav: 'Tab',
 };
 

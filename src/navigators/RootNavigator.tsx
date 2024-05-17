@@ -5,8 +5,8 @@ import {Resource} from '@root/res';
 import {keys} from '@root/res/global';
 import {RootState} from '@root/store/configureStore';
 import {storeToken} from '@root/store/reducers/Login/LoginSlice';
-import {Languages} from '@root/utility/Constants';
-import {getLocalDataByKey} from '@root/utility/utility';
+import {Utils} from '@root/utils';
+import {Languages} from '@root/utils/Constants';
 import i18next from 'i18next';
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
@@ -23,7 +23,9 @@ export default function RootNavigator() {
   }, []);
 
   const checkAndChangeLanguage = async () => {
-    const currLanguage = await getLocalDataByKey(keys.KEY_CURRENT_LANGUAGE);
+    const currLanguage = await Utils.Utility.getLocalDataByKey(
+      keys.KEY_CURRENT_LANGUAGE,
+    );
     if (currLanguage) {
       i18next.changeLanguage(currLanguage);
     } else {

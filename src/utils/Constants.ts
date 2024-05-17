@@ -6,7 +6,7 @@ export const Constants = {
   phone: 'phone',
   social: 'social',
   iMessage: 'iMessage',
-  activeOpacity: '0.8',
+  activeOpacity: 0.8,
 };
 
 export const Languages = {

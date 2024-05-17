@@ -86,7 +86,7 @@ const CustomButton = ({
         avoidInnerPadding
         avoidMinWidth
         label={title || t('buttonTitle.back')}
-        labelStyle={labelStyle}
+        labelStyle={[{color: colors.white}, labelStyle]}
         enableShadow={false}
         onPress={onPress}
         {...props}

@@ -1,9 +1,9 @@
 import appStyles from '@root/res/appStyles';
 import {colors} from '@root/theme/theme';
+import {Constants} from '@root/utils/Constants';
 import React, {useState} from 'react';
 import {FlatList, Text, TouchableOpacity, View} from 'react-native';
 import {styles} from './styles';
-import {Utility} from '@root/utility';
 
 export type ChipsData = {
   label: string;
@@ -55,7 +55,7 @@ export const Chips: React.FC<ChipsProps> = props => {
   const renderItem = ({item, index}: {item: ChipsData; index: number}) => {
     return (
       <TouchableOpacity
-        activeOpacity={Utility.Constants.Constants.activeOpacity}
+        activeOpacity={Constants.activeOpacity}
         onPress={() => onPressItem(item, index)}
         style={[
           styles.renderItem,

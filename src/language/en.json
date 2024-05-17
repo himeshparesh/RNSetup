@@ -11,7 +11,8 @@
     },
     "label": {},
     "buttonTitle": {
-      "changeLanguage": "Change Lanugage"
+      "changeLanguage": "Change Lanugage",
+      "permission": "Permission"
     },
     "alerts": {
       "noInternetConnectionMsg": "No Internet Connection, Make sure you are connected to Internet!"

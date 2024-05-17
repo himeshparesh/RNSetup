@@ -30,8 +30,9 @@ target 'RNDemo' do
 
 
   permissions_path = '../node_modules/react-native-permissions/ios'
-  # pod 'Permission-PhotoLibraryAddOnly', :path => "#{permissions_path}/PhotoLibraryAddOnly"
-
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse"
+  
   pod 'react-native-config/Extension', :path => '../node_modules/react-native-config'
 
 

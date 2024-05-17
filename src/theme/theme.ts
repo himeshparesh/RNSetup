@@ -55,6 +55,7 @@ const colors = {
   greenLight: '#00A99D1A',
   red: '#cd0000',
   red1: '#FF4A4A',
+  gray: '#999999',
 };
 
 export {themes, colors};

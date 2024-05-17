@@ -52,7 +52,10 @@ const TabNavigator = (props: Props) => {
         tabBarHideOnKeyboard: false,
         tabBarShowLabel: false,
       })}>
-      <Tab.Screen name={'DashboardTab'} component={DashboardStackNav} />
+      <Tab.Screen
+        name={Resource.globals.navigationRouteNames.dashboardTab}
+        component={DashboardStackNav}
+      />
     </Tab.Navigator>
   );
 };

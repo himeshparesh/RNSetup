@@ -5,9 +5,9 @@ import {Text, View} from 'react-native';
 import Slider from 'rn-range-slider';
 import styles from './styles';
 import {useTranslation} from 'react-i18next';
-import {currencyWiseAmount, getLocalDataByKey} from '@root/utility/utility';
+import {currencyWiseAmount, getLocalDataByKey} from '@root/utils/Utils';
 import {keys} from '@root/res/global';
-import {Constants} from '@root/utility/Constants';
+import {Constants} from '@root/utils/Constants';
 
 type RangePickerProps = {
   min: number;

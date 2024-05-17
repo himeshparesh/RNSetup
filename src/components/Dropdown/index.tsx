@@ -3,7 +3,7 @@ import appStyles from '@root/res/appStyles';
 import fonts from '@root/res/fonts';
 import {FontSizes} from '@root/res/palette';
 import {colors} from '@root/theme/theme';
-import {Constants} from '@root/utility/Constants';
+import {Constants} from '@root/utils/Constants';
 import React, {useEffect, useState} from 'react';
 import {FlatList, Text, TouchableOpacity} from 'react-native';
 import {TextStyle} from 'react-native-size-matters';

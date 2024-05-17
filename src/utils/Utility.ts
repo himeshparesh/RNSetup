@@ -1,6 +1,9 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import NetInfo from '@react-native-community/netinfo';
+import i18n from '@root/language/i18n';
 import {Resource} from '@root/res';
+import {colors} from '@root/theme/theme';
+import {ToastType} from '@root/types/types';
 import {
   Alert,
   Dimensions,
@@ -8,8 +11,8 @@ import {
   NativeScrollEvent,
   Platform,
 } from 'react-native';
+import Toast, {ToastPosition} from 'react-native-toast-message';
 import {Constants} from './Constants';
-import i18n from '@root/language/i18n';
 
 export const getDeviceWidth = () => {
   return Math.round(Dimensions.get('window').width);
@@ -59,16 +62,23 @@ export const alertOkButton = {
   onPress: () => console.log('OK Pressed'),
 };
 
-export const showMessage = (text: string, center: string = 'center') => {
-  console.log('Message: ', text);
+export const showMessage = (
+  type: ToastType,
+  msg1: string,
+  msg2?: string,
+  position?: ToastPosition,
+) => {
+  console.log('Message: ', msg1);
 
-  //  WToast.show({
-  //   data: text,
-  //   backgroundColor: colors.lightBlueNeutral,
-  //   textColor: colors.black,
-  //   textAlign: center,
-  //   duration: WToast.duration.SHORT,
-  // });
+  Toast.show({
+    type: type,
+    text1: msg1,
+    text2: msg2,
+    position: position || 'bottom',
+    text1Style: {color: colors.black, fontSize: 14},
+    text2Style: {color: colors.black, fontSize: 12},
+    visibilityTime: 2000,
+  });
 };
 
 export const alertCancelButton = {

@@ -1,9 +1,7 @@
-import React from 'react';
-
 import {Resource} from '@root/res';
 import {Dashboard, DashboardFilled} from '@root/res/svgImages';
 import {colors} from '@root/theme/theme';
-import {Utility} from '@root/utility';
+import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 import {moderateScale} from 'react-native-size-matters';
@@ -20,7 +18,7 @@ const TabBar = ({state, descriptors, navigation}: any) => {
         let labelColor;
         const getSVGIcons = () => {
           switch (route.name) {
-            case Resource.globals.navigationRouteNames.dashboard:
+            case Resource.globals.navigationRouteNames.dashboardTab:
               screenLabel = 'Dashboard';
               labelColor = isFocused ? colors.primaryGreen : colors.gray;
               return isFocused ? <DashboardFilled /> : <Dashboard />;
@@ -62,7 +60,7 @@ const styles = StyleSheet.create({
   mainContainer: {
     flexDirection: 'row',
     position: 'absolute',
-    bottom: Utility.utility.getOS() == 'ios' ? 0 : 0,
+    bottom: 0,
     backgroundColor: colors.white,
     borderRadius: moderateScale(35),
     borderWidth: moderateScale(1),

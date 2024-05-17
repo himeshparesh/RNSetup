@@ -1,5 +1,5 @@
 import appStyles from '@root/res/appStyles';
-import {Constants} from '@root/utility/Constants';
+import {Constants} from '@root/utils/Constants';
 import React, {ReactNode, useState} from 'react';
 import {Text, TouchableOpacity, View, ViewStyle} from 'react-native';
 

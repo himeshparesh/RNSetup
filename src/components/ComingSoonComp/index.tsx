@@ -1,6 +1,6 @@
 import {useNavigation} from '@react-navigation/native';
 import {colors} from '@root/theme/theme';
-import {Constants} from '@root/utility/Constants';
+import {Constants} from '@root/utils/Constants';
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import Header from '../Header';
@@ -14,7 +14,6 @@ const ComingSoonComp = props => {
         backgroundColor: 'white',
       }}>
       <Header
-        // title={strings.text.editProfile}
         leftButtons={
           <TouchableOpacity
             activeOpacity={Constants.activeOpacity}
