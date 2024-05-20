@@ -1,42 +1,49 @@
+import {Dispatch} from '@reduxjs/toolkit';
 import {Api} from '@root/apiManager';
 import {ToastType} from '@root/types/types';
 import {Utils} from '@root/utils';
-import axios from 'axios';
+import axios, {AxiosHeaders} from 'axios';
 import {storeToken} from './reducers/LoginSlice';
 
 const defaultHeader = {'Content-Type': 'application/json'};
 
-axios.interceptors.response.use(
-  response => {
-    // console.log('------------------------------');
-    // console.log('Response ⬇️', JSON.stringify(response?.data, null, 2));
-    // console.log('------------------------------');
-    return response;
-  },
-  error => {
-    // console.log('------------------------------');
-    // console.log('Error ⬇️', JSON.stringify(error, null, 2));
-    // console.log('------------------------------');
-    return error;
-  },
-);
+// axios.interceptors.response.use(
+//   response => {
+//     // console.log('------------------------------');
+//     // console.log('Response ⬇️', JSON.stringify(response?.data, null, 2));
+//     // console.log('------------------------------');
+//     return response;
+//   },
+//   error => {
+//     // console.log('------------------------------');
+//     // console.log('Error ⬇️', JSON.stringify(error, null, 2));
+//     // console.log('------------------------------');
+//     return Promise.reject(error);
+//   },
+// );
 
-axios.interceptors.request.use(async config => {
-  // console.log('------------------------------');
-  // console.log('Request ⬇️', JSON.stringify(config, null, 2));
-  // console.log('------------------------------');
-  return config;
-});
+// axios.interceptors.request.use(async config => {
+//   // console.log('------------------------------');
+//   // console.log('Request ⬇️', JSON.stringify(config, null, 2));
+//   // console.log('------------------------------');
+//   return config;
+// });
 
-export default axiosApiResponse = async (
-  payload,
-  rejectWithValue,
-  dispatch,
+type ApiPayload = {
+  headers: AxiosHeaders;
+  body: any;
+  type: string;
+  useJSON?: boolean;
+  url: string;
+};
+
+const axiosApiResponse = async (
+  payload: ApiPayload,
+  rejectWithValue: any,
+  dispatch: Dispatch,
 ) => {
-  var {headers, body, type = 'post', url, useJSON = true} = payload;
-
-  let header = {...defaultHeader, ...headers};
-
+  let {headers, body, type = 'post', url, useJSON = true} = payload;
+  const header = {...defaultHeader, ...headers};
   body = {...body};
   // console.log('------------------------------');
   // console.log('API Data : ', JSON.stringify(payload, null, 2));
@@ -58,7 +65,7 @@ export default axiosApiResponse = async (
   let response;
   try {
     let requestData = {
-      url: payload.url,
+      url: url,
       method: type,
       headers: header,
       timeout: 60 * 1000,
@@ -68,7 +75,7 @@ export default axiosApiResponse = async (
     }
     response = await axios.request(requestData);
     // console.log('Axios api post', response?.data);
-    return {data: response?.data, extraParams: {...payload?.extraParams}};
+    return response?.data;
   } catch (err: any) {
     console.log('Axios api error catch ', err);
 
@@ -85,3 +92,5 @@ export default axiosApiResponse = async (
     return rejectWithValue(err?.response?.data ?? {});
   }
 };
+
+export default axiosApiResponse;

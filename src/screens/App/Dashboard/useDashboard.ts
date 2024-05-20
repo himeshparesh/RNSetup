@@ -84,18 +84,17 @@ export const useDashboard = () => {
   };
 
   const fetchPosts = () => {
-    const data = {useJSON: true, isToken: false};
+    const data = {isToken: false};
     dispatch(postThunk(data));
   };
 
   const fetchPhotos = () => {
-    const data = {useJSON: true, isToken: false};
+    const data = {isToken: false};
     dispatch(photosThunk(data));
   };
 
   const fetchNewPost = (page: number, forPagination: boolean) => {
     const data = {
-      useJSON: true,
       isToken: false,
       extraParams: {forPagination},
       page,

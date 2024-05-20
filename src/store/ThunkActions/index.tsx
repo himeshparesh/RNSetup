@@ -1,8 +1,8 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
 import {Api} from '@root/apiManager';
 import {Resource} from '@root/res';
-import axiosApiResponse from '../axiosApiResponse';
 import {ENV_DUMMY_API_TOKEN} from '../../../env';
+import axiosApiResponse from '../axiosApiResponse';
 
 export const loginThunk = createAsyncThunk(
   'auth/login',
