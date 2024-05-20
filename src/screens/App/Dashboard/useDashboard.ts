@@ -1,11 +1,18 @@
+import {ApolloError, useLazyQuery} from '@apollo/client';
 import {useNavigation} from '@react-navigation/native';
+import {GET_POST} from '@root/graphQL/queries';
 import {usePermission} from '@root/hooks/usePermission';
 import {Resource} from '@root/res';
 import {keys} from '@root/res/global';
 import {photosThunk, postNewThunk, postThunk} from '@root/store/ThunkActions';
 import {RootState} from '@root/store/configureStore';
-import {removeHomeData, showLoader} from '@root/store/reducers/DashboardSlice';
+import {
+  addGraphPost,
+  removeHomeData,
+  showLoader,
+} from '@root/store/reducers/DashboardSlice';
 import {storeToken} from '@root/store/reducers/LoginSlice';
+import {ToastType} from '@root/types/types';
 import {Utils} from '@root/utils';
 import {Languages} from '@root/utils/Constants';
 import i18next from 'i18next';
@@ -14,7 +21,7 @@ import {useTranslation} from 'react-i18next';
 import {Platform} from 'react-native';
 import {PERMISSIONS} from 'react-native-permissions';
 import {useDispatch, useSelector} from 'react-redux';
-import {Photo, Post, PostNew} from './types';
+import {Photo, Post, PostDataResponse, PostNew} from './types';
 
 export const useDashboard = () => {
   const dispatch = useDispatch();
@@ -24,6 +31,8 @@ export const useDashboard = () => {
   const [page, setPageNum] = useState<number>(1);
   const [loadMore, setLoadMore] = useState<boolean>(false);
   const navigation = useNavigation();
+  const [getPosts] = useLazyQuery(GET_POST);
+  const LIMIT = 10;
 
   useEffect(() => {
     fetchInitial();
@@ -36,6 +45,31 @@ export const useDashboard = () => {
     fetchPhotos();
     setPageNum(1);
     fetchNewPost(1, false);
+    fetchGraphPosts();
+  };
+
+  const fetchGraphPosts = () => {
+    getPosts({
+      variables: {
+        options: {
+          paginate: {
+            page: 1,
+            limit: LIMIT,
+          },
+        },
+      },
+      onCompleted: (data: PostDataResponse) => {
+        if (data.posts) {
+          dispatch(addGraphPost(data.posts));
+        }
+      },
+      onError: (err: ApolloError) => {
+        Utils.Utility.showMessage(
+          ToastType.error,
+          err?.message || t('common.someThingWrong'),
+        );
+      },
+    });
   };
 
   const onRefreshClick = () => {
@@ -98,7 +132,7 @@ export const useDashboard = () => {
       isToken: false,
       extraParams: {forPagination},
       page,
-      limit: 5,
+      limit: LIMIT,
     };
     dispatch(postNewThunk(data))
       .unwrap()

@@ -32,6 +32,7 @@
     "ios:prodRun": "react-native run-ios --scheme production"
   },
   "dependencies": {
+    "@apollo/client": "^3.10.4",
     "@react-native-async-storage/async-storage": "^1.23.1",
     "@react-native-community/netinfo": "^11.3.1",
     "@react-navigation/bottom-tabs": "^6.5.20",
@@ -40,6 +41,7 @@
     "@react-navigation/native-stack": "^6.9.26",
     "@reduxjs/toolkit": "^2.2.4",
     "axios": "^1.6.8",
+    "graphql": "^16.8.1",
     "i18next": "^23.11.3",
     "moment": "^2.30.1",
     "react": "18.2.0",

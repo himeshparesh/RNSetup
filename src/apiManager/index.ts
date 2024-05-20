@@ -1,4 +1,4 @@
-import {api, errors, Links} from './ApiConsts';
+import {api, errors, Links} from './apiConsts';
 const Api = {
   api,
   errors,

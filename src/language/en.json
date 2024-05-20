@@ -4,11 +4,14 @@
     "testing": "Hi, This is testing text under the Text Section.",
     "text": {
       "testing": "Hi, This is testing text under the Text Section.",
-      "done": "Done"
+      "done": "Done",
+      "yourLoginSessionExpired": "Login session expired.",
+      "noInternetConnectionMsg": "No Internet Connection, Make sure you are connected to Internet!"
     },
     "header": {},
     "common": {
-      "testing": "Hi, This is testing text under the Common Section."
+      "testing": "Hi, This is testing text under the Common Section.",
+      "someThingWrong": "Something went wrong"
     },
     "label": {
       "posts": "Posts",
@@ -21,7 +24,8 @@
       "name": "Name",
       "emailAddress": "Email address",
       "title": "Title",
-      "description": "Description"
+      "description": "Description",
+      "graphPost": "Graph Post"
     },
     "buttonTitle": {
       "changeLanguage": "Change Lanugage",

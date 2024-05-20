@@ -1,5 +1,6 @@
 import {SerializedError, createSlice} from '@reduxjs/toolkit';
 import {
+  GraphPosts,
   NewPostData,
   Photo,
   PhotosData,
@@ -14,6 +15,7 @@ type DashboardState = {
   photos: Photo[];
   loader: boolean;
   newPosts: NewPostData;
+  graphPosts: GraphPosts;
 };
 
 const initialState: DashboardState = {
@@ -21,10 +23,16 @@ const initialState: DashboardState = {
   photos: [],
   loader: false,
   newPosts: undefined,
+  graphPosts: undefined,
 };
 
 type ShowLoaderAction = {
   payload: boolean;
+  type?: string;
+};
+
+type GraphAddPostAction = {
+  payload: GraphPosts;
   type?: string;
 };
 
@@ -64,11 +72,16 @@ export const DashboardSlice = createSlice({
       state.posts = [];
       state.photos = [];
       state.newPosts = undefined;
+      state.graphPosts = undefined;
+    },
+    addGraphPost(state: DashboardState, action: GraphAddPostAction) {
+      state.graphPosts = action?.payload;
     },
     clearHomeData(state: DashboardState) {
       state.posts = [];
       state.photos = [];
       state.newPosts = undefined;
+      state.graphPosts = undefined;
       state.loader = false;
     },
   },
@@ -110,6 +123,7 @@ export const DashboardSlice = createSlice({
     builder.addCase(
       postNewThunk.fulfilled,
       (state: DashboardState, action: NewPostAction) => {
+        state.loader = false;
         const res = action?.payload ?? {};
         if (action?.meta?.arg?.extraParams?.forPagination) {
           state.newPosts = {
@@ -124,6 +138,6 @@ export const DashboardSlice = createSlice({
   },
 });
 
-export const {clearHomeData, showLoader, removeHomeData} =
+export const {clearHomeData, showLoader, removeHomeData, addGraphPost} =
   DashboardSlice.actions;
 export default DashboardSlice.reducer;

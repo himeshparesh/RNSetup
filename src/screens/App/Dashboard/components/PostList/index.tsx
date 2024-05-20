@@ -14,6 +14,7 @@ import {styles} from './styles';
 type Props = {
   list: Post[];
   onItemClick: (item: Post) => void;
+  title: string;
 };
 
 export const PostList: React.FC<Props> = props => {
@@ -37,10 +38,7 @@ export const PostList: React.FC<Props> = props => {
 
   return (
     <View style={{display: props?.list?.length > 0 ? 'flex' : 'none'}}>
-      <SectionTitle
-        title={t('label.posts')}
-        style={styles.contentMarginSpacing}
-      />
+      <SectionTitle title={props?.title} style={styles.contentMarginSpacing} />
       <FlatList
         showsHorizontalScrollIndicator={false}
         horizontal

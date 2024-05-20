@@ -48,16 +48,26 @@ const Dashboard = () => {
           />
         </View>
 
-        <PostList list={dashboardData?.posts} onItemClick={onPostClick} />
-
-        <PhotoList list={dashboardData?.photos} onItemClick={onPhotoClick} />
-
         <PostListNew
           postData={dashboardData?.newPosts}
           onItemClick={onNewPostClick}
           onEndReached={onNewPostEndReached}
           loadMore={loadMore}
         />
+
+        <PostList
+          title={t('label.posts')}
+          list={dashboardData?.posts}
+          onItemClick={onPostClick}
+        />
+
+        <PostList
+          title={t('label.graphPost')}
+          list={dashboardData?.graphPosts?.data}
+          onItemClick={onPostClick}
+        />
+
+        <PhotoList list={dashboardData?.photos} onItemClick={onPhotoClick} />
 
         <View style={styles.contentMarginSpacing}>
           <SectionTitle title={t('label.language')} />

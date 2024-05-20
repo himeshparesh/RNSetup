@@ -41,3 +41,16 @@ export interface Owner {
   lastName: string;
   picture: string;
 }
+
+export interface PostDataResponse {
+  posts: GraphPosts;
+}
+
+export interface GraphPosts {
+  data: Post[];
+  meta: PostMeta;
+}
+
+export interface PostMeta {
+  totalCount: number;
+}
