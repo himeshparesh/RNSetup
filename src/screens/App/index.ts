@@ -1,7 +1,9 @@
-import Dashboard from "./Dashboard";
+import Dashboard from './Dashboard';
+import {Form} from './Form';
 
 const App = {
- Dashboard: Dashboard
+  Dashboard: Dashboard,
+  Form: Form,
 };
 
 export default App;

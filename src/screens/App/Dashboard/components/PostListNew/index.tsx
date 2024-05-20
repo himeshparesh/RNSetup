@@ -22,7 +22,11 @@ export const PostListNew: React.FC<Props> = props => {
   };
 
   return (
-    <View style={styles.rootView}>
+    <View
+      style={[
+        styles.rootView,
+        {display: props?.postData?.data?.length > 0 ? 'flex' : 'none'},
+      ]}>
       <SectionTitle
         title={t('label.newPosts')}
         style={styles.contentMarginSpacing}

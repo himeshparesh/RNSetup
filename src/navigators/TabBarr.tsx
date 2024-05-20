@@ -1,10 +1,11 @@
 import {Resource} from '@root/res';
 import {Dashboard, DashboardFilled} from '@root/res/svgImages';
 import {colors} from '@root/theme/theme';
+import {Constants} from '@root/utils/Constants';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
-import {moderateScale} from 'react-native-size-matters';
+import {moderateScale, moderateVerticalScale} from 'react-native-size-matters';
 
 const TabBar = ({state, descriptors, navigation}: any) => {
   const {t} = useTranslation();
@@ -73,6 +74,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: moderateScale(15),
     borderRadius: moderateScale(1),
+    height: Constants.bottomTabHeight,
   },
   txtTab: {
     ...Resource.palette.StyleText(

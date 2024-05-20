@@ -3,7 +3,8 @@
     "appName": "RNDemo",
     "testing": "Hi, This is testing text under the Text Section.",
     "text": {
-      "testing": "Hi, This is testing text under the Text Section."
+      "testing": "Hi, This is testing text under the Text Section.",
+      "done": "Done"
     },
     "header": {},
     "common": {
@@ -16,7 +17,11 @@
       "language": "Language",
       "persmission": "Permission",
       "form": "Form",
-      "dashboard": "Dashboard"
+      "dashboard": "Dashboard",
+      "name": "Name",
+      "emailAddress": "Email address",
+      "title": "Title",
+      "description": "Description"
     },
     "buttonTitle": {
       "changeLanguage": "Change Lanugage",
@@ -24,14 +29,23 @@
       "settings": "Settings",
       "cancel": "Cancel",
       "refresh": "Refresh",
-      "form": "Form"
+      "form": "Form",
+      "submit": "Submit",
+      "toggle": "Toggle"
     },
     "alerts": {
       "noInternetConnectionMsg": "No Internet Connection, Make sure you are connected to Internet!",
       "pleaseAllowPermission": "Please allow Permission from settings."
     },
-    "placeholder": {},
-    "validationErrors": {},
+    "placeholder": {
+      "enterName": "Enter name",
+      "enterEmail": "Enter email address"
+    },
+    "validationErrors": {
+      "pleaseEnterName": "Pleae enter name.",
+      "pleaseEnterEmailAdress": "Pleae enter email address",
+      "pleaseEnterValidEmailAddress": "Pleae enter valid email address."
+    },
     "successMessage": {}
   }
 }

@@ -10,6 +10,7 @@ export interface themeType {
   inputBg: string;
   primaryOrange: string;
   trasparent: string;
+  txtPlaceholder: string;
 }
 
 interface themesType {
@@ -28,9 +29,10 @@ const themes: themesType = {
     cardBg: '#E5E5E5',
     accent: '#0071ff',
     error: '#B00020',
-    inputBg: '#F7F7FC',
+    inputBg: '#e1e1e6',
     primaryOrange: '#F58223',
     trasparent: '#00000000',
+    txtPlaceholder: '#4f4f4f',
   },
   dark: {
     name: 'dark',
@@ -41,9 +43,10 @@ const themes: themesType = {
     cardBg: '#1e1e1e',
     accent: '#0071ff',
     error: '#B00020',
-    inputBg: '#F7F7FC',
+    inputBg: '#e1e1e6',
     primaryOrange: '#F68E39',
     trasparent: '#00000000',
+    txtPlaceholder: '#4f4f4f',
   },
 };
 
@@ -57,6 +60,8 @@ const colors = {
   red1: '#FF4A4A',
   gray: '#999999',
   black00000040: '#00000040',
+  grayA7A9AB: '#A7A9AB',
+  transparent: 'transparent',
 };
 
 export {colors, themes};

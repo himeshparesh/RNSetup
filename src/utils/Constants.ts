@@ -1,4 +1,5 @@
 import {Platform} from 'react-native';
+import {moderateVerticalScale} from 'react-native-size-matters';
 
 export const Constants = {
   whatapp: 'whatapp',
@@ -7,6 +8,7 @@ export const Constants = {
   social: 'social',
   iMessage: 'iMessage',
   activeOpacity: 0.8,
+  bottomTabHeight: moderateVerticalScale(70),
 };
 
 export const Languages = {

@@ -70,46 +70,33 @@ export const DashboardSlice = createSlice({
     });
     builder.addCase(postThunk.fulfilled, (state, action) => {
       state.loader = false;
-      state.posts = action?.payload ?? {};
+      state.posts = action?.payload?.data ?? {};
     });
     builder.addCase(postThunk.rejected, (state, action) => {
       state.loader = false;
-      console.log('rejected');
     });
 
     builder.addCase(photosThunk.pending, state => {
       state.loader = true;
-      console.log('photosThunk PENDING');
     });
     builder.addCase(photosThunk.fulfilled, (state, action) => {
       state.loader = false;
-      state.photos = action?.payload ?? {};
+      state.photos = action?.payload?.data ?? {};
     });
     builder.addCase(photosThunk.rejected, (state, action) => {
       state.loader = false;
-      console.log('photosThunk rejected');
     });
 
-    builder.addCase(postNewThunk.pending, state => {
-      state.loader = true;
-      console.log('postNewThunk PENDING');
-    });
     builder.addCase(postNewThunk.fulfilled, (state, action) => {
-      state.loader = false;
       const res = action?.payload ?? {};
-
       if (res?.extraParams?.forPagination) {
         state.newPosts = {
           ...state.newPosts,
-          data: [...state.newPosts?.data, ...res?.data],
+          data: [...state.newPosts?.data, ...res?.data?.data],
         };
       } else {
-        state.newPosts = action?.payload;
+        state.newPosts = action?.payload?.data;
       }
-    });
-    builder.addCase(postNewThunk.rejected, (state, action) => {
-      state.loader = false;
-      console.log('postNewThunk rejected');
     });
   },
 });

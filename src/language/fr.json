@@ -1,21 +1,51 @@
 {
   "translation": {
     "appName": "RNDemo",
-    "testing": "Bonjour, ceci teste le texte dans la section Texte.",
+    "testing": "Bonjour, ceci est un texte de test sous la section Texte.",
     "text": {
-      "testing": "Bonjour, ceci teste le texte dans la section Texte."
+      "testing": "Bonjour, ceci est un texte de test sous la section Texte.",
+      "done": "Terminé"
     },
     "header": {},
     "common": {
-      "testing": "Bonjour, Ceci teste le texte dans la section commune."
+      "testing": "Bonjour, ceci est un texte de test sous la section Commune."
     },
-    "label": {},
+    "label": {
+      "posts": "Articles",
+      "photos": "Photos",
+      "newPosts": "Nouveaux articles",
+      "language": "Langue",
+      "persmission": "Permission",
+      "form": "Formulaire",
+      "dashboard": "Tableau de bord",
+      "name": "Nom",
+      "emailAddress": "Adresse e-mail",
+      "title": "Titre",
+      "description": "Description"
+    },
     "buttonTitle": {
-      "changeLanguage": "Changer de langue"
+      "changeLanguage": "Changer de langue",
+      "permission": "Permission",
+      "settings": "Paramètres",
+      "cancel": "Annuler",
+      "refresh": "Rafraîchir",
+      "form": "Formulaire",
+      "submit": "Soumettre",
+      "toggle": "Basculer"
     },
-    "alerts": {},
-    "placeholder": {},
-    "validationErrors": {},
+    "alerts": {
+      "noInternetConnectionMsg": "Pas de connexion Internet, assurez-vous d'être connecté à Internet !",
+      "pleaseAllowPermission": "Veuillez autoriser la permission depuis les paramètres."
+    },
+    "placeholder": {
+      "enterName": "Entrez le nom",
+      "enterEmail": "Entrez l'adresse e-mail"
+    },
+    "validationErrors": {
+      "pleaseEnterName": "Veuillez entrer le nom.",
+      "pleaseEnterEmailAdress": "Veuillez entrer l'adresse e-mail.",
+      "pleaseEnterValidEmailAddress": "Veuillez entrer une adresse e-mail valide."
+    },
     "successMessage": {}
   }
 }

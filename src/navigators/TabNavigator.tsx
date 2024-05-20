@@ -8,7 +8,7 @@ import TabBar from './TabBarr';
 
 const Tab = createBottomTabNavigator();
 
-const commonNavOption = {headerShown: false, gestureEnabled: false};
+const commonNavOption = {headerShown: true, gestureEnabled: false};
 
 const DashboardStack = createNativeStackNavigator();
 
@@ -19,7 +19,11 @@ function DashboardStackNav() {
       component: Screens.App.Dashboard,
       options: commonNavOption,
     },
-    // ...StackNavList,
+    {
+      name: Resource.globals.navigationRouteNames.form,
+      component: Screens.App.Form,
+      options: commonNavOption,
+    },
   ];
   return (
     <DashboardStack.Navigator>

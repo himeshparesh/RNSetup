@@ -1,10 +1,11 @@
+import {Resource} from '@root/res';
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    paddingHorizontal: Resource.palette.Spacing.HR16,
   },
 });
 

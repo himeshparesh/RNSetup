@@ -1,4 +1,6 @@
+import {useNavigation} from '@react-navigation/native';
 import {usePermission} from '@root/hooks/usePermission';
+import {Resource} from '@root/res';
 import {keys} from '@root/res/global';
 import {photosThunk, postNewThunk, postThunk} from '@root/store/ThunkActions';
 import {RootState} from '@root/store/configureStore';
@@ -16,11 +18,12 @@ import {Photo, Post, PostNew} from './types';
 
 export const useDashboard = () => {
   const dispatch = useDispatch();
-  const dashboardData = useSelector((state: RootState) => state.dashboard);
   const {t} = useTranslation();
+  const dashboardData = useSelector((state: RootState) => state.dashboard);
   const {checkAndRequestPermission, AppSettingsAlert} = usePermission();
   const [page, setPageNum] = useState<number>(1);
   const [loadMore, setLoadMore] = useState<boolean>(false);
+  const navigation = useNavigation();
 
   useEffect(() => {
     fetchInitial();
@@ -77,7 +80,7 @@ export const useDashboard = () => {
   const onNewPostClick = (item: PostNew) => {};
 
   const onFormClick = () => {
-    // navigation.navigate(ScreenNames.Form);
+    navigation.navigate(Resource.globals.navigationRouteNames.form);
   };
 
   const fetchPosts = () => {
@@ -98,7 +101,11 @@ export const useDashboard = () => {
       page,
       limit: 5,
     };
-    dispatch(postNewThunk(data));
+    dispatch(postNewThunk(data))
+      .unwrap()
+      .then(data => {
+        setLoadMore(false);
+      });
   };
 
   const onNewPostEndReached = () => {

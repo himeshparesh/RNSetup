@@ -33,7 +33,7 @@ export default axiosApiResponse = async (
   rejectWithValue,
   dispatch,
 ) => {
-  var {headers, body, type = 'post', url, useJSON = false} = payload;
+  var {headers, body, type = 'post', url, useJSON = true} = payload;
 
   let header = {...defaultHeader, ...headers};
 
@@ -57,7 +57,6 @@ export default axiosApiResponse = async (
 
   let response;
   try {
-    // console.log('axiosApiResponse formBody', formBody);
     let requestData = {
       url: payload.url,
       method: type,
@@ -69,7 +68,7 @@ export default axiosApiResponse = async (
     }
     response = await axios.request(requestData);
     // console.log('Axios api post', response?.data);
-    return response?.data;
+    return {data: response?.data, extraParams: {...payload?.extraParams}};
   } catch (err: any) {
     console.log('Axios api error catch ', err);
 

@@ -32,14 +32,6 @@ function AppNavigator() {
     setInitialRouteName(navigationRouteNames.tabNav);
   };
 
-  const showPermissionDialoge = () => {
-    // Helper.checkReadWritePermission();
-  };
-
-  useEffect(() => {
-    showPermissionDialoge();
-  }, []);
-
   useEffect(() => {
     checkIsTokenAvailable();
   }, [login?.token]);

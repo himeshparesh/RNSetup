@@ -7,7 +7,12 @@ import {ENV_DUMMY_API_TOKEN} from '../../../env';
 export const loginThunk = createAsyncThunk(
   'auth/login',
   async (payload, {rejectWithValue, dispatch}) => {
-    return axiosApiResponse(payload, rejectWithValue, dispatch);
+    const payloadData = {
+      ...payload,
+      url: Api.api.login,
+      type: Resource.globals.APITypes.post,
+    };
+    return axiosApiResponse(payloadData, rejectWithValue, dispatch);
   },
 );
 

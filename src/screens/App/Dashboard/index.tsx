@@ -35,7 +35,7 @@ const Dashboard = () => {
 
   return (
     <Layout>
-      <ScrollView style={styles.container}>
+      <ScrollView>
         <TouchableOpacity onPress={handleLogout} style={styles.contentSpacing}>
           <SectionTitle title={t('label.dashboard')} />
         </TouchableOpacity>

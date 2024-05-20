@@ -1,4 +1,6 @@
+import {SectionTitle} from '@root/components/SectionTitle';
 import React from 'react';
+import {useTranslation} from 'react-i18next';
 import {
   FlatList,
   ListRenderItemInfo,
@@ -8,8 +10,6 @@ import {
 } from 'react-native';
 import {Post} from '../../types';
 import {styles} from './styles';
-import {SectionTitle} from '@root/components/SectionTitle';
-import {useTranslation} from 'react-i18next';
 
 type Props = {
   list: Post[];
@@ -24,10 +24,12 @@ export const PostList: React.FC<Props> = props => {
         onPress={() => props?.onItemClick(item)}
         style={styles.container}>
         <Text numberOfLines={1} style={styles.txtTitle}>
-          Title: <Text style={styles.txtTitleData}>{item?.title}</Text>
+          {`${t('label.title')} : `}
+          <Text style={styles.txtTitleData}>{item?.title}</Text>
         </Text>
-        <Text numberOfLines={3} style={styles.txtTitle}>
-          Description: <Text style={styles.txtTitleData}>{item?.body}</Text>
+        <Text numberOfLines={4} style={styles.txtTitle}>
+          {`${t('label.description')} : `}
+          <Text style={styles.txtTitleData}>{item?.body}</Text>
         </Text>
       </TouchableOpacity>
     );
