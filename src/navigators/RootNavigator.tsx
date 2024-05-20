@@ -4,7 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Resource} from '@root/res';
 import {keys} from '@root/res/global';
 import {RootState} from '@root/store/configureStore';
-import {storeToken} from '@root/store/reducers/Login/LoginSlice';
+import {storeToken} from '@root/store/reducers/LoginSlice';
 import {Utils} from '@root/utils';
 import {Languages} from '@root/utils/Constants';
 import i18next from 'i18next';
@@ -15,7 +15,7 @@ import AuthNavigator from './AuthNavigator';
 import {navigationRef} from './RootNavigation';
 
 export default function RootNavigator() {
-  const login = useSelector((state: RootState) => state.rootReducer.login);
+  const login = useSelector((state: RootState) => state.login);
   const dispatch = useDispatch();
 
   useEffect(() => {

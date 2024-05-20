@@ -1,10 +1,7 @@
 import {configureStore} from '@reduxjs/toolkit';
 import rootReducer from './combineReducer';
 
-
 export const store = configureStore({
-  reducer: {rootReducer},
+  reducer: rootReducer,
 });
 export type RootState = ReturnType<typeof store.getState>;
-
-

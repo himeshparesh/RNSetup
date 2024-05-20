@@ -1,84 +1,88 @@
 import CustomButton from '@root/components/CustomButton';
-import {usePermission} from '@root/hooks/usePermission';
-import {keys} from '@root/res/global';
-import {storeToken} from '@root/store/reducers/Login/LoginSlice';
-import {colors} from '@root/theme/theme';
-import {Utils} from '@root/utils';
-import {Languages} from '@root/utils/Constants';
-import i18next from 'i18next';
+import Layout from '@root/components/Layout';
+import Loader from '@root/components/Loader';
+import {SectionTitle} from '@root/components/SectionTitle';
+import CustomText from '@root/components/TextButton';
+import {RootState} from '@root/store/configureStore';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
-import {Platform, Text, TouchableOpacity, View} from 'react-native';
+import {ScrollView, TouchableOpacity, View} from 'react-native';
 import {moderateVerticalScale} from 'react-native-size-matters';
-import {useDispatch} from 'react-redux';
+import {useSelector} from 'react-redux';
+import {PhotoList} from './components/PhotoList';
+import {PostList} from './components/PostList';
+import {PostListNew} from './components/PostListNew';
 import styles from './styles';
-import {PERMISSIONS} from 'react-native-permissions';
+import {useDashboard} from './useDashboard';
 
 const Dashboard = () => {
-  const dispatch = useDispatch();
+  const dashboardData = useSelector((state: RootState) => state.dashboard);
+
+  const {
+    handleLogout,
+    onChangeLanguage,
+    onPermissionClick,
+    AppSettingsAlert,
+    onRefreshClick,
+    onPostClick,
+    onPhotoClick,
+    onNewPostClick,
+    onNewPostEndReached,
+    onFormClick,
+    loadMore,
+  } = useDashboard();
   const {t} = useTranslation();
-  const {checkAndRequestPermission, AppSettingsAlert} = usePermission();
-
-  const handleLogout = () => {
-    dispatch(storeToken(''));
-  };
-
-  const changeLanguage = async () => {
-    const curLang = await Utils.Utility.getLocalDataByKey(
-      keys.KEY_CURRENT_LANGUAGE,
-    );
-    if (curLang === Languages.english) {
-      Utils.Utility.setLocalDataByKey(
-        keys.KEY_CURRENT_LANGUAGE,
-        Languages.french,
-      ).then(() => {
-        i18next.changeLanguage(Languages.french);
-      });
-    } else {
-      Utils.Utility.setLocalDataByKey(
-        keys.KEY_CURRENT_LANGUAGE,
-        Languages.english,
-      ).then(() => {
-        i18next.changeLanguage(Languages.english);
-      });
-    }
-  };
-
-  const onPermissionPress = () => {
-    const permission = Platform.select({
-      ios: PERMISSIONS.IOS.LOCATION_WHEN_IN_USE,
-      android: PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION,
-    });
-    checkAndRequestPermission(permission);
-  };
 
   return (
-    <View style={styles.container}>
-      <TouchableOpacity onPress={handleLogout}>
-        <Text>Dashboard</Text>
-      </TouchableOpacity>
-      <Text>{t('testing')}</Text>
-      <Text>{t('text.testing')}</Text>
-      <Text>{t('common.testing')}</Text>
+    <Layout>
+      <ScrollView style={styles.container}>
+        <TouchableOpacity onPress={handleLogout} style={styles.contentSpacing}>
+          <SectionTitle title={t('label.dashboard')} />
+        </TouchableOpacity>
 
-      <CustomButton
-        title={t('buttonTitle.changeLanguage')}
-        onPress={() => changeLanguage()}
-        bgColor={colors.primaryGreen}
-        height={moderateVerticalScale(44)}
-        width={'100%'}
-      />
+        <View style={styles.contentMarginSpacing}>
+          <CustomButton
+            onPress={onRefreshClick}
+            title={t('buttonTitle.refresh')}
+            viewStyle={styles.contentMarginSpacing}
+          />
+        </View>
 
-      <CustomButton
-        title={t('buttonTitle.permission')}
-        onPress={() => onPermissionPress()}
-        bgColor={colors.primaryGreen}
-        height={moderateVerticalScale(44)}
-        width={'100%'}
-      />
+        <PostList list={dashboardData?.posts} onItemClick={onPostClick} />
 
+        <PhotoList list={dashboardData?.photos} onItemClick={onPhotoClick} />
+
+        <PostListNew
+          postData={dashboardData?.newPosts}
+          onItemClick={onNewPostClick}
+          onEndReached={onNewPostEndReached}
+          loadMore={loadMore}
+        />
+
+        <View style={styles.contentMarginSpacing}>
+          <SectionTitle title={t('label.language')} />
+          <CustomText
+            text={t('text.testing')}
+            style={{marginVertical: moderateVerticalScale(8)}}
+          />
+          <CustomButton
+            title={t('buttonTitle.changeLanguage')}
+            onPress={onChangeLanguage}
+          />
+
+          <SectionTitle title={t('label.persmission')} />
+          <CustomButton
+            title={t('buttonTitle.permission')}
+            onPress={onPermissionClick}
+          />
+
+          <SectionTitle title={t('label.form')} />
+          <CustomButton onPress={onFormClick} title={t('buttonTitle.form')} />
+        </View>
+      </ScrollView>
+      <Loader loading={dashboardData?.loader} />
       <AppSettingsAlert />
-    </View>
+    </Layout>
   );
 };
 

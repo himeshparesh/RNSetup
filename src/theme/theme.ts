@@ -56,6 +56,7 @@ const colors = {
   red: '#cd0000',
   red1: '#FF4A4A',
   gray: '#999999',
+  black00000040: '#00000040',
 };
 
-export {themes, colors};
+export {colors, themes};

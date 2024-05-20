@@ -22,7 +22,7 @@ function AppNavigator() {
   const Stack = createNativeStackNavigator();
   const [initialRouteName, setInitialRouteName] = useState<string>();
 
-  const login = useSelector((state: RootState) => state.rootReducer.login);
+  const login = useSelector((state: RootState) => state.login);
 
   const checkIsTokenAvailable = () => {
     if (login && login.token != '') {

@@ -1,10 +1,32 @@
 import {Api} from '@root/apiManager';
+import {ToastType} from '@root/types/types';
 import {Utils} from '@root/utils';
 import axios from 'axios';
-import {storeToken} from './reducers/Login/LoginSlice';
-import {ToastType} from '@root/types/types';
+import {storeToken} from './reducers/LoginSlice';
 
 const defaultHeader = {'Content-Type': 'application/json'};
+
+axios.interceptors.response.use(
+  response => {
+    // console.log('------------------------------');
+    // console.log('Response ⬇️', JSON.stringify(response?.data, null, 2));
+    // console.log('------------------------------');
+    return response;
+  },
+  error => {
+    // console.log('------------------------------');
+    // console.log('Error ⬇️', JSON.stringify(error, null, 2));
+    // console.log('------------------------------');
+    return error;
+  },
+);
+
+axios.interceptors.request.use(async config => {
+  // console.log('------------------------------');
+  // console.log('Request ⬇️', JSON.stringify(config, null, 2));
+  // console.log('------------------------------');
+  return config;
+});
 
 export default axiosApiResponse = async (
   payload,
@@ -16,9 +38,11 @@ export default axiosApiResponse = async (
   let header = {...defaultHeader, ...headers};
 
   body = {...body};
-  console.log('Axios :', headers, body, type, url, payload);
-
-  var formBody = body;
+  // console.log('------------------------------');
+  // console.log('API Data : ', JSON.stringify(payload, null, 2));
+  // console.log('API header : ', JSON.stringify(header, null, 2));
+  // console.log('------------------------------');
+  let formBody = body;
 
   if (!useJSON) {
     formBody = new FormData();
@@ -31,22 +55,23 @@ export default axiosApiResponse = async (
     }
   }
 
-  var response;
-
+  let response;
   try {
     // console.log('axiosApiResponse formBody', formBody);
-
-    response = await axios.request({
+    let requestData = {
       url: payload.url,
       method: type,
-      data: formBody,
       headers: header,
       timeout: 60 * 1000,
-    });
+    };
+    if (Object.keys(formBody).length > 0) {
+      requestData = {...requestData, data: formBody};
+    }
+    response = await axios.request(requestData);
     // console.log('Axios api post', response?.data);
     return response?.data;
   } catch (err: any) {
-    console.log('Axios api error catch post', err?.response);
+    console.log('Axios api error catch ', err);
 
     if (err?.response?.status == 401) {
       console.log('in side auth in', err?.response?.status == 401);

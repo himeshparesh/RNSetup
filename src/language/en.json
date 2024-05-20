@@ -9,12 +9,22 @@
     "common": {
       "testing": "Hi, This is testing text under the Common Section."
     },
-    "label": {},
+    "label": {
+      "posts": "Posts",
+      "photos": "Photos",
+      "newPosts": "New Posts",
+      "language": "Language",
+      "persmission": "Permission",
+      "form": "Form",
+      "dashboard": "Dashboard"
+    },
     "buttonTitle": {
       "changeLanguage": "Change Lanugage",
       "permission": "Permission",
       "settings": "Settings",
-      "cancel": "Cancel"
+      "cancel": "Cancel",
+      "refresh": "Refresh",
+      "form": "Form"
     },
     "alerts": {
       "noInternetConnectionMsg": "No Internet Connection, Make sure you are connected to Internet!",

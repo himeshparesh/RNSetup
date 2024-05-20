@@ -5,7 +5,7 @@ import CustomButton from '@root/components/CustomButton';
 import CustomText from '@root/components/TextButton';
 import {Resource} from '@root/res';
 import {loginThunk} from '@root/store/ThunkActions';
-import {storeToken} from '@root/store/reducers/Login/LoginSlice';
+import {storeToken} from '@root/store/reducers/LoginSlice';
 import {useTheme} from '@root/theme/useTheme';
 import {default as React} from 'react';
 import {TouchableOpacity, View} from 'react-native';

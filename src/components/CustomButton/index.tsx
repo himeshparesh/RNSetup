@@ -38,7 +38,7 @@ const CustomButton = ({
   isSquare,
   icon, //= Resource.images.header.back,
   height,
-  width,
+  width = '100%',
   bgColor,
   tintColor,
   resizeMode = 'stretch',
@@ -55,11 +55,11 @@ const CustomButton = ({
   const styles = StyleSheet.create({
     styleButton: {
       borderRadius: moderateScale(8),
-      height: height || '85%',
+      height: height || moderateVerticalScale(44),
       width: isSquare ? undefined : width || undefined,
       aspectRatio: isSquare ? 1 : undefined,
       padding: moderateScale(4),
-      backgroundColor: bgColor || colors.transparent,
+      backgroundColor: bgColor || colors.primaryGreen,
     },
     styleImage: {
       height: '100%',

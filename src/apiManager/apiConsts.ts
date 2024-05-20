@@ -1,7 +1,14 @@
-import {ENV_BASE_URL} from '../../env';
+import {
+  ENV_BASE_URL,
+  ENV_DUMMY_API_BASE_URL,
+  ENV_JSON_PLACEHOLDER_BASE_URL,
+} from '../../env';
 
 const api = {
   login: `${ENV_BASE_URL}/login`,
+  GET_POSTS: `${ENV_JSON_PLACEHOLDER_BASE_URL}/posts`,
+  GET_PHOTOS: `${ENV_JSON_PLACEHOLDER_BASE_URL}/photos`,
+  GET_NEW_POST: `${ENV_DUMMY_API_BASE_URL}/post`,
 };
 
 const statusCode = {
