@@ -4,11 +4,21 @@
     "testing": "Bonjour, ceci est un texte de test sous la section Texte.",
     "text": {
       "testing": "Bonjour, ceci est un texte de test sous la section Texte.",
-      "done": "Terminé"
+      "done": "Terminé",
+      "yourLoginSessionExpired": "La session de connexion a expiré.",
+      "noInternetConnectionMsg": "Pas de connexion Internet, assurez-vous d'être connecté à Internet !"
     },
-    "header": {},
+    "header": {
+      "login": "Connexion",
+      "dashboard": "Tableau de bord",
+      "form": "Formulaire",
+      "bottomTab": "Onglet du bas",
+      "postDetails": "Détails de l'article",
+      "drawer": "Tiroir"
+    },
     "common": {
-      "testing": "Bonjour, ceci est un texte de test sous la section Commune."
+      "testing": "Bonjour, ceci est un texte de test sous la section Commune.",
+      "someThingWrong": "Quelque chose s'est mal passé"
     },
     "label": {
       "posts": "Articles",
@@ -21,7 +31,8 @@
       "name": "Nom",
       "emailAddress": "Adresse e-mail",
       "title": "Titre",
-      "description": "Description"
+      "description": "Description",
+      "graphPost": "Article graphique"
     },
     "buttonTitle": {
       "changeLanguage": "Changer de langue",

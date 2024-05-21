@@ -1,3 +1,4 @@
+import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
 import {Resource} from '@root/res';
 import {Dashboard, DashboardFilled} from '@root/res/svgImages';
 import {colors} from '@root/theme/theme';
@@ -5,9 +6,13 @@ import {Constants} from '@root/utils/Constants';
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
-import {moderateScale, moderateVerticalScale} from 'react-native-size-matters';
+import {moderateScale} from 'react-native-size-matters';
 
-const TabBar = ({state, descriptors, navigation}: any) => {
+const TabBar: React.FC<BottomTabBarProps> = ({
+  state,
+  descriptors,
+  navigation,
+}: BottomTabBarProps) => {
   const {t} = useTranslation();
 
   return (

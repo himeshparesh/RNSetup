@@ -22,6 +22,8 @@ export const navigationRouteNames = {
   dashboardTab: 'DashboardTab',
   tabNav: 'Tab',
   form: 'Form',
+  postDetails: 'PostDetails',
+  drawer: 'Drawer',
 };
 
 export const AppChannelId = '';

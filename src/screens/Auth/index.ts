@@ -1,9 +1,7 @@
-import LoginScreen from "./LoginScreen";
-
+import Login from './Login';
 
 const Auth = {
-    LoginScreens: LoginScreen
-  };
-  
-  export default Auth;
-  
+  Login: Login,
+};
+
+export default Auth;

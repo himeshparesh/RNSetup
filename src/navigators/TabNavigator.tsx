@@ -1,56 +1,50 @@
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {
+  BottomTabBarProps,
+  createBottomTabNavigator,
+} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {NativeStackNavigationHelpers} from '@react-navigation/native-stack/lib/typescript/src/types';
 import {Resource} from '@root/res';
 import Screens from '@root/screens';
 import React from 'react';
-import TabBar from './TabBarr';
+import {useTranslation} from 'react-i18next';
+import TabBar from './TabBar';
 
 const Tab = createBottomTabNavigator();
 
-const commonNavOption = {headerShown: true, gestureEnabled: false};
-
 const DashboardStack = createNativeStackNavigator();
 
-function DashboardStackNav() {
-  const dashboardNavList = [
-    {
-      name: Resource.globals.navigationRouteNames.dashboard,
-      component: Screens.App.Dashboard,
-      options: commonNavOption,
-    },
-    {
-      name: Resource.globals.navigationRouteNames.form,
-      component: Screens.App.Form,
-      options: commonNavOption,
-    },
-  ];
+const commonNavOption = {headerShown: true, gestureEnabled: false};
+
+const DashboardNavList = [
+  {
+    name: Resource.globals.navigationRouteNames.dashboard,
+    component: Screens.App.Dashboard,
+    options: commonNavOption,
+    title: 'header.dashboard',
+  },
+];
+
+const DashboardStackNav: React.FC = () => {
+  const {t} = useTranslation();
+
   return (
     <DashboardStack.Navigator>
-      {dashboardNavList.map(item => (
+      {DashboardNavList.map(item => (
         <DashboardStack.Screen
           key={item.name}
-          options={item.options}
+          options={{...item.options, title: t(item?.title)}}
           name={item.name}
           component={item.component}
         />
       ))}
     </DashboardStack.Navigator>
   );
-}
-
-type Props = {
-  navigation: NativeStackNavigationHelpers;
 };
 
-const TabNavigator = (props: Props) => {
-  // const dashboard = useSelector(
-  //   (state: RootState) => state.dashboard,
-  // );
-
+const TabNavigator: React.FC = () => {
   return (
     <Tab.Navigator
-      tabBar={props => <TabBar {...props} />}
+      tabBar={(props: BottomTabBarProps) => <TabBar {...props} />}
       screenOptions={({route}) => ({
         headerShown: false,
         tabBarHideOnKeyboard: false,

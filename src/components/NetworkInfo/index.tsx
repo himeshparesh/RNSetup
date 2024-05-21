@@ -3,10 +3,11 @@ import {NoInternet} from '@root/res/svgImages';
 import React, {useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {Modal, Text, View} from 'react-native';
+import {moderateVerticalScale} from 'react-native-size-matters';
 import styles from './styles';
 
-const NetworkInfo = () => {
-  const [isConnected, setIsConnected] = useState(false);
+const NetworkInfo: React.FC = () => {
+  const [isConnected, setIsConnected] = useState<boolean>(true);
   const {t} = useTranslation();
 
   useEffect(() => {
@@ -27,7 +28,10 @@ const NetworkInfo = () => {
     <Modal visible={!isConnected} transparent={true} animationType={'fade'}>
       <View style={styles.offlineContainer}>
         <View style={styles.centerContent}>
-          <NoInternet height={100} width={100} />
+          <NoInternet
+            height={moderateVerticalScale(100)}
+            width={moderateVerticalScale(100)}
+          />
           <Text style={styles.offlineText}>
             {t('text.noInternetConnectionMsg')}
           </Text>

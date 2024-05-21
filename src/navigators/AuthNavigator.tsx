@@ -11,7 +11,7 @@ function AuthNavigator() {
       initialRouteName={Resource.globals.navigationRouteNames.login}>
       <Stack.Screen
         name={Resource.globals.navigationRouteNames.login}
-        component={Screens.Auth.LoginScreens.Login}
+        component={Screens.Auth.Login}
         options={{gestureEnabled: false}}
       />
     </Stack.Navigator>

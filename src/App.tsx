@@ -1,9 +1,9 @@
-import {ENV, ENV_BASE_URL} from '../env';
 import React, {useEffect} from 'react';
 import {LogBox} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 import Toast from 'react-native-toast-message';
 import {Provider} from 'react-redux';
+import {ENV, ENV_BASE_URL} from '../env';
 import NetworkInfo from './components/NetworkInfo';
 import {RootNavigator} from './navigators';
 import {store} from './store/configureStore';

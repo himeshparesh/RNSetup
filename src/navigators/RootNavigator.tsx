@@ -61,7 +61,7 @@ export default function RootNavigator() {
   return client ? (
     <ApolloProvider client={client}>
       <NavigationContainer ref={navigationRef}>
-        {login.token == '' ? <AuthNavigator /> : <AppNavigator />}
+        <AppNavigator />
       </NavigationContainer>
     </ApolloProvider>
   ) : (

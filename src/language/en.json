@@ -8,7 +8,14 @@
       "yourLoginSessionExpired": "Login session expired.",
       "noInternetConnectionMsg": "No Internet Connection, Make sure you are connected to Internet!"
     },
-    "header": {},
+    "header": {
+      "login": "Login",
+      "dashboard": "Dashboard",
+      "form": "Form",
+      "bottomTab": "Bottom Tab",
+      "postDetails": "Post Details",
+      "drawer": "Drawer"
+    },
     "common": {
       "testing": "Hi, This is testing text under the Common Section.",
       "someThingWrong": "Something went wrong"
