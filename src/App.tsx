@@ -3,10 +3,11 @@ import {LogBox} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 import Toast from 'react-native-toast-message';
 import {Provider} from 'react-redux';
+import {PersistGate} from 'redux-persist/integration/react';
 import {ENV, ENV_BASE_URL} from '../env';
 import NetworkInfo from './components/NetworkInfo';
 import {RootNavigator} from './navigators';
-import {store} from './store/configureStore';
+import {persistor, store} from './store/configureStore';
 import {ThemeProvider} from './theme/useTheme';
 
 LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
@@ -23,11 +24,13 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <NetworkInfo />
-      <ThemeProvider>
-        <RootNavigator />
-        <Toast />
-      </ThemeProvider>
+      <PersistGate persistor={persistor}>
+        <NetworkInfo />
+        <ThemeProvider>
+          <RootNavigator />
+          <Toast />
+        </ThemeProvider>
+      </PersistGate>
     </Provider>
   );
 };
