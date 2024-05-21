@@ -42,7 +42,15 @@
       "refresh": "Rafraîchir",
       "form": "Formulaire",
       "submit": "Soumettre",
-      "toggle": "Basculer"
+      "toggle": "Basculer",
+      "sqlite": "Exemple SQLite",
+      "createDatabase": "Créer une base de données",
+      "createNewTable": "Cretae Nouvelle Table",
+      "getTablesName": "Obtenir le nom des tables",
+      "insertDetails": "Insérer les détails",
+      "getUserData": "Obtenir les données utilisateur",
+      "updateFirstUser": "Mettre à jour le premier utilisateur",
+      "deleteSecondUser": "Supprimer le deuxième utilisateur"
     },
     "alerts": {
       "noInternetConnectionMsg": "Pas de connexion Internet, assurez-vous d'être connecté à Internet !",

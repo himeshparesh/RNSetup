@@ -14,7 +14,8 @@
       "form": "Form",
       "bottomTab": "Bottom Tab",
       "postDetails": "Post Details",
-      "drawer": "Drawer"
+      "drawer": "Drawer",
+      "sqliteExample": "SQLite Example"
     },
     "common": {
       "testing": "Hi, This is testing text under the Common Section.",
@@ -42,7 +43,15 @@
       "refresh": "Refresh",
       "form": "Form",
       "submit": "Submit",
-      "toggle": "Toggle"
+      "toggle": "Toggle",
+      "sqlite": "SQLite Example",
+      "createDatabase": "Create Database",
+      "createNewTable": "Cretae New Table",
+      "getTablesName": "Get Tables Name",
+      "insertDetails": "Insert Details",
+      "getUserData": "Get User Data",
+      "updateFirstUser": "Update First User",
+      "deleteSecondUser": "Delete Second User"
     },
     "alerts": {
       "noInternetConnectionMsg": "No Internet Connection, Make sure you are connected to Internet!",

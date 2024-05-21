@@ -14,8 +14,14 @@ import {PostList} from './components/PostList';
 import {PostListNew} from './components/PostListNew';
 import styles from './styles';
 import {useDashboard} from './useDashboard';
+import {NativeStackNavigationHelpers} from '@react-navigation/native-stack/lib/typescript/src/types';
+import {navigationRouteNames} from '@root/res/global';
 
-const Dashboard = () => {
+type Props = {
+  navigation: NativeStackNavigationHelpers;
+};
+
+const Dashboard = (props: Props) => {
   const dashboardData = useSelector((state: RootState) => state.dashboard);
 
   const {
@@ -88,6 +94,13 @@ const Dashboard = () => {
 
           <SectionTitle title={t('label.form')} />
           <CustomButton onPress={onFormClick} title={t('buttonTitle.form')} />
+          <CustomButton
+            title={t('buttonTitle.sqlite')}
+            style={{marginTop: 20}}
+            onPress={() =>
+              props.navigation.navigate(navigationRouteNames.sqliteExample)
+            }
+          />
         </View>
       </ScrollView>
       <Loader loading={dashboardData?.loader} />

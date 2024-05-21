@@ -46,6 +46,12 @@ export const StackNavList = [
     options: {...commonNavOption, headerShown: true},
     title: 'header.form',
   },
+  {
+    name: Resource.globals.navigationRouteNames.sqliteExample,
+    component: Screens.App.SQLiteExample,
+    options: {...commonNavOption, headerShown: true},
+    title: 'header.sqliteExample',
+  },
 ];
 
 function AppNavigator() {

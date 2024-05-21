@@ -24,6 +24,7 @@ export const navigationRouteNames = {
   form: 'Form',
   postDetails: 'PostDetails',
   drawer: 'Drawer',
+  sqliteExample: 'sqliteExample',
 };
 
 export const AppChannelId = '';
