@@ -135,6 +135,12 @@ export const DashboardSlice = createSlice({
         }
       },
     );
+    builder.addCase(
+      postNewThunk.rejected,
+      (state: DashboardState, action: RejectedAction) => {
+        state.loader = false;
+      },
+    );
   },
 });
 

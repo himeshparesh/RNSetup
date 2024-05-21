@@ -1,23 +1,17 @@
 import {colors} from '@root/theme/theme';
 import React from 'react';
-import {ActivityIndicator, Modal, StyleSheet, View} from 'react-native';
+import {ActivityIndicator, StyleSheet, View} from 'react-native';
+import Modal from 'react-native-modal';
 
 type props = {loading: boolean; color?: string};
 
-const Loader: React.FC<props> = (props: props) => {
-  const {loading, color = colors.primaryGreen} = props;
-
+const Loader: React.FC<props> = ({
+  loading,
+  color = colors.primaryGreen,
+}: props) => {
   return (
-    <Modal
-      transparent={true}
-      animationType={'none'}
-      visible={loading}
-      onRequestClose={() => {}}>
-      <View
-        style={[
-          styles.modalBackground,
-          {backgroundColor: colors.black00000040},
-        ]}>
+    <Modal isVisible={loading}>
+      <View style={styles.modalBackground}>
         <View style={styles.activityIndicatorWrapper}>
           <ActivityIndicator animating={loading} size="large" color={color} />
         </View>
