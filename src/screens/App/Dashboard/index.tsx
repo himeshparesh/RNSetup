@@ -91,7 +91,7 @@ const Dashboard = () => {
         </View>
       </ScrollView>
       <Loader loading={dashboardData?.loader} />
-      <AppSettingsAlert />
+      {AppSettingsAlert()}
     </Layout>
   );
 };

@@ -41,8 +41,7 @@ export const AleartDialog: React.FC<CustomAlertDialogue> = props => {
     <BottomModal
       visible={props?.visible}
       closeModel={onCloseClick}
-      showBottomSheet={false}
-      itemStyle={styles.centerStyle}>
+      showBottomSheet={false}>
       <View style={appStyles.centerAlignStyle}>
         {props?.title ? (
           <Text
@@ -63,7 +62,6 @@ export const AleartDialog: React.FC<CustomAlertDialogue> = props => {
             <CustomButton
               title={props?.secondaryBtnText}
               bgColor={colors.primaryGreen}
-              height={50}
               width="70%"
               labelStyle={{
                 ...Resource.palette.StyleText(
@@ -80,7 +78,6 @@ export const AleartDialog: React.FC<CustomAlertDialogue> = props => {
           <CustomButton
             title={props?.primaryBtnText}
             bgColor={colors.primaryGreen}
-            height={50}
             width="70%"
             labelStyle={{
               ...Resource.palette.StyleText(
