@@ -7,10 +7,11 @@ import {useTranslation} from 'react-i18next';
 import {Linking} from 'react-native';
 import {
   Permission,
-  PermissionStatus,
   RESULTS,
   check,
+  checkMultiple,
   request,
+  requestMultiple,
 } from 'react-native-permissions';
 
 export const usePermission = () => {
@@ -43,31 +44,61 @@ export const usePermission = () => {
     );
   };
 
-  const checkAndRequestPermission = async (permission: Permission) => {
-    let status: PermissionStatus = RESULTS.UNAVAILABLE;
+  const checkAndRequestPermission = async (
+    permission: Permission,
+    callback: (isGranted: boolean) => void,
+  ) => {
     const permissionStatus = await check(permission);
-    status = permissionStatus;
-    console.log('Permission String: ', permission);
     if (permissionStatus === RESULTS.GRANTED) {
-      console.log('GRANTED');
       Utils.Utility.showMessage(ToastType.success, 'GRANTED');
+      callback(true);
     } else if (
       permissionStatus === RESULTS.DENIED ||
       permissionStatus === RESULTS.BLOCKED ||
       permissionStatus === RESULTS.UNAVAILABLE
     ) {
-      console.log('ST :', JSON.stringify(permissionStatus));
-      const newPermissionStatus = await request(permission);
-      status = newPermissionStatus;
-      console.log('NewPermissionStatus : ', newPermissionStatus);
-      if (
-        newPermissionStatus === RESULTS.DENIED ||
-        newPermissionStatus === RESULTS.BLOCKED
-      ) {
+      const requestPermissionStatus = await request(permission);
+      if (requestPermissionStatus === RESULTS.GRANTED) {
+        callback(true);
+      } else {
         setShowAlert(true);
+        callback(false);
       }
     }
   };
 
-  return {checkAndRequestPermission, AppSettingsAlert};
+  const checkAndRequestMulitiplePermission = async (
+    permission: Permission[],
+    callback: (isGranted: boolean) => void,
+  ) => {
+    const permissionStatus = await checkMultiple(permission);
+    const deniedPermission: Permission[] = [];
+    permission.forEach(item => {
+      if (permissionStatus[item] != RESULTS.GRANTED) {
+        deniedPermission.push(item);
+      }
+    });
+    if (deniedPermission.length === 0) {
+      callback(true);
+    } else {
+      const requestPermissionStatus = await requestMultiple(deniedPermission);
+      const newDeniedPermission = [];
+      deniedPermission.forEach(item => {
+        if (requestPermissionStatus[item] != RESULTS.GRANTED)
+          newDeniedPermission.push(item);
+      });
+      if (newDeniedPermission?.length == 0) {
+        callback(true);
+      } else {
+        setShowAlert(true);
+        callback(false);
+      }
+    }
+  };
+
+  return {
+    checkAndRequestPermission,
+    AppSettingsAlert,
+    checkAndRequestMulitiplePermission,
+  };
 };

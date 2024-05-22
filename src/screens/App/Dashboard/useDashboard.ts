@@ -19,7 +19,7 @@ import i18next from 'i18next';
 import {useEffect, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {Platform} from 'react-native';
-import {PERMISSIONS} from 'react-native-permissions';
+import Permissions, {PERMISSIONS} from 'react-native-permissions';
 import {useDispatch, useSelector} from 'react-redux';
 import {Photo, Post, PostDataResponse, PostNew} from './types';
 
@@ -27,7 +27,11 @@ export const useDashboard = () => {
   const dispatch = useDispatch();
   const {t} = useTranslation();
   const dashboardData = useSelector((state: RootState) => state.dashboard);
-  const {checkAndRequestPermission, AppSettingsAlert} = usePermission();
+  const {
+    checkAndRequestPermission,
+    AppSettingsAlert,
+    checkAndRequestMulitiplePermission,
+  } = usePermission();
   const [page, setPageNum] = useState<number>(1);
   const [loadMore, setLoadMore] = useState<boolean>(false);
   const navigation = useNavigation();
@@ -102,11 +106,36 @@ export const useDashboard = () => {
   };
 
   const onPermissionClick = () => {
-    const permission = Platform.select({
+    // const permission = Platform.select({
+    //   ios: PERMISSIONS.IOS.LOCATION_WHEN_IN_USE,
+    //   android: PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION,
+    // });
+    // checkAndRequestPermission(permission, (isGranted: boolean) => {
+    //   console.log('isGranted : ', isGranted);
+    // });
+    // return;
+
+    const locationPermission = Platform.select({
       ios: PERMISSIONS.IOS.LOCATION_WHEN_IN_USE,
       android: PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION,
     });
-    checkAndRequestPermission(permission);
+
+    const cameraPermission = Platform.select({
+      ios: PERMISSIONS.IOS.CAMERA,
+      android: PERMISSIONS.ANDROID.CAMERA,
+    });
+
+    const photo = Platform.select({
+      ios: Permissions.PERMISSIONS.IOS.PHOTO_LIBRARY_ADD_ONLY,
+      android: PERMISSIONS.ANDROID.READ_MEDIA_IMAGES,
+    });
+
+    checkAndRequestMulitiplePermission(
+      [photo, cameraPermission, locationPermission],
+      (isGranted: boolean) => {
+        console.log('isMultiple Granted : ', isGranted);
+      },
+    );
   };
 
   const onPostClick = (item: Post) => {};
